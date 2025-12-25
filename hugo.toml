@@ -1,0 +1,43 @@
+baseURL = "https://slayhoccode.github.io/"
+languageCode = "vi"
+title = "Blog Lập Trình Mạng"
+theme = "PaperMod"
+
+[params]
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = true
+
+[params.homeInfoParams]
+  Title = "Chào mừng đến với Blog của tôi 👋"
+  Content = "Chia sẻ kiến thức về lập trình Java & JavaScript"
+
+[[params.socialIcons]]
+  name = "github"
+  url = "https://github.com/slayhoccode"
+
+[[params.socialIcons]]
+  name = "email"
+  url = "mailto:phamtraidz@gmail.com"
+
+[[menu.main]]
+  identifier = "home"
+  name = "Home"
+  url = "/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "posts"
+  name = "Blog"
+  url = "/posts/"
+  weight = 20
+
+[[menu.main]]
+  identifier = "about"
+  name = "Giới thiệu"
+  url = "/about/"
+  weight = 30
