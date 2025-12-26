@@ -3,6 +3,8 @@ languageCode = "vi"
 title = "Blog Lập Trình Mạng"
 theme = "PaperMod"
 
+publishDir = "docs"
+
 [params]
   defaultTheme = "auto"
   ShowReadingTime = true

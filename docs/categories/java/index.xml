@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Java on Blog Lập Trình Mạng</title>
+    <link>http://localhost:1313/categories/java/</link>
+    <description>Recent content in Java on Blog Lập Trình Mạng</description>
+    <generator>Hugo -- 0.153.2</generator>
+    <language>vi</language>
+    <lastBuildDate>Fri, 20 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Socket Programming trong Java</title>
+      <link>http://localhost:1313/posts/java-socket-programming/</link>
+      <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/java-socket-programming/</guid>
+      <description>&lt;h2 id=&#34;giới-thiệu-về-socket-programming&#34;&gt;Giới thiệu về Socket Programming&lt;/h2&gt;
+&lt;p&gt;Socket là endpoint của một kết nối hai chiều giữa hai chương trình chạy trên mạng.&lt;/p&gt;
+&lt;h3 id=&#34;các-loại-socket&#34;&gt;Các loại Socket&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;TCP Socket&lt;/strong&gt;: Kết nối tin cậy, có trình tự&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;UDP Socket&lt;/strong&gt;: Không kết nối, nhanh hơn&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;ví-dụ-tcp-server&#34;&gt;Ví dụ TCP Server&lt;/h3&gt;
+&lt;p&gt;import java.net.&lt;em&gt;;
+import java.io.&lt;/em&gt;;&lt;/p&gt;
+&lt;p&gt;public class SimpleServer {
+public static void main(String[] args) throws IOException {
+ServerSocket serverSocket = new ServerSocket(8080);
+System.out.println(&amp;ldquo;Server đang chờ kết nối&amp;hellip;&amp;rdquo;);&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>HTTP Request trong Java</title>
+      <link>http://localhost:1313/posts/java-http-request/</link>
+      <pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/java-http-request/</guid>
+      <description>&lt;h2 id=&#34;http-client-trong-java&#34;&gt;HTTP Client trong Java&lt;/h2&gt;
+&lt;p&gt;Java cung cấp nhiều cách để thực hiện HTTP request.&lt;/p&gt;
+&lt;h3 id=&#34;sử-dụng-httpurlconnection&#34;&gt;Sử dụng HttpURLConnection&lt;/h3&gt;
+&lt;p&gt;import java.net.&lt;em&gt;;
+import java.io.&lt;/em&gt;;&lt;/p&gt;
+&lt;p&gt;public class HttpExample {
+public static void main(String[] args) throws Exception {
+URL url = new URL(&amp;ldquo;&lt;a href=&#34;https://api.example.com/data%22);&#34;&gt;https://api.example.com/data&amp;quot;);&lt;/a&gt;
+HttpURLConnection con = (HttpURLConnection) url.openConnection();
+con.setRequestMethod(&amp;ldquo;GET&amp;rdquo;);&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    int responseCode = con.getResponseCode();
+    System.out.println(&amp;quot;Response Code: &amp;quot; + responseCode);
+    
+    BufferedReader in = new BufferedReader(
+        new InputStreamReader(con.getInputStream()));
+    String inputLine;
+    StringBuffer response = new StringBuffer();
+    
+    while ((inputLine = in.readLine()) != null) {
+        response.append(inputLine);
+    }
+    in.close();
+    
+    System.out.println(response.toString());
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;}&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
