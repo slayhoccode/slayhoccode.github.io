@@ -1,6 +1,6 @@
 baseURL = "https://slayhoccode.github.io/"
 languageCode = "vi"
-title = "Blog Lập Trình Mạng"
+title = "Blog Ngọc Trai"
 theme = "PaperMod"
 
 publishDir = "docs"
