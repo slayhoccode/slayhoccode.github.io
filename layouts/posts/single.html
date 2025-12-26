@@ -1,0 +1,34 @@
+{{/* OVERRIDE: layouts/posts/single.html */}}
+{{ define "main" }}
+<article class="post-luxe">
+  <header class="post-head">
+    <div class="post-head-inner">
+      {{ with .Params.series }}<p class="post-kicker">{{ . }} //</p>{{ end }}
+      <h1 class="post-title">{{ .Title }}</h1>
+      <div class="post-meta-row">
+        <time class="post-date" datetime="{{ .Date }}">{{ .Date.Format "02 Jan 2006" }}</time>
+        <span class="post-dot">•</span>
+        <span class="post-rt">{{ .ReadingTime }} min read</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="post-content post-body">
+    {{ with .Params.featured_image }}
+      <figure class="post-featured"><img src="{{ . | relURL }}" alt="{{ $.Title }}"></figure>
+    {{ end }}
+    {{ .Content }}
+  </div>
+
+  <footer class="post-meta">
+    {{ with .Params.tags }}
+    <div class="tag-row">
+      <span class="tag-label">Tags</span>
+      <div class="tag-pills">
+        {{ range . }}<a class="tag-pill" href="{{ "/tags/" | relURL }}{{ . | urlize }}">{{ . }}</a>{{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </footer>
+</article>
+{{ end }}

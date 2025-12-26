@@ -1,5 +1,6 @@
 ---
 title: "Bài 2 — Quản lý các luồng nhập xuất (I/O Streams)"
+layout: "featured"
 date: 2025-12-26
 draft: false
 tags: ["Java", "I/O", "Stream", "Buffered", "Lập trình mạng"]

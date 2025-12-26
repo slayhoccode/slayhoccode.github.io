@@ -1,5 +1,6 @@
 ---
 title: "Bài 1 — Tổng quan về lập trình mạng"
+layout: "featured"
 date: 2025-12-26
 draft: false
 tags: ["Java", "Lập trình mạng", "Network", "Overview"]

@@ -1,5 +1,6 @@
 ---
 title: "Bài 8 — Lập trình Multicast trong Java"
+layout: "featured"
 date: 2025-12-26
 draft: false
 tags: ["Java", "Multicast", "UDP", "MulticastSocket"]

@@ -1,5 +1,6 @@
 ---
 title: "Bài 5 — Lập trình Socket TCP trong Java"
+layout: "featured"
 date: 2025-12-26
 draft: false
 tags: ["Java", "TCP", "Socket", "Client-Server"]

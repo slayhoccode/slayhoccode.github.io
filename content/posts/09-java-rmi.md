@@ -1,5 +1,6 @@
 ---
 title: "Bài 9 — Phân tán đối tượng trong Java bằng RMI"
+layout: "featured"
 date: 2025-12-26
 draft: false
 tags: ["Java", "RMI", "Distributed", "Remote"]

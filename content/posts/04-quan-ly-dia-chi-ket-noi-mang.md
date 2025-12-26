@@ -1,5 +1,6 @@
 ---
 title: "Bài 4 — Quản lý địa chỉ kết nối mạng (IP, Port, DNS, URL)"
+layout: "featured"
 date: 2025-12-26
 draft: false
 tags: ["Java", "InetAddress", "URL", "DNS", "Network"]

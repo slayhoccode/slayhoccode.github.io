@@ -1,5 +1,6 @@
 ---
 title: "Bài 6 — Đa tiến trình & Tuần tự hoá đối tượng (Serialization) trong ứng dụng mạng"
+layout: "featured"
 date: 2025-12-26
 draft: false
 tags: ["Java", "Process", "Serialization", "ObjectStream", "Network"]

@@ -1,5 +1,6 @@
 ---
 title: "Bài 7 — Lập trình mạng UDP trong Java"
+layout: "featured"
 date: 2025-12-26
 draft: false
 tags: ["Java", "UDP", "DatagramSocket", "Network"]

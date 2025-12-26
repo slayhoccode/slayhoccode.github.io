@@ -203,12 +203,127 @@
                     <a href="/about/">→ Giới thiệu</a>
                 </div>
             </div>
+            <div class="social-box">
+                <div class="social-row">
+                    <a href="https://github.com/slayhoccode" class="social-btn" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </svg>
+                        GitHub
+                    </a>
+                    <a href="mailto:phamtraidz@gmail.com" class="social-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16v16H4z"></path>
+                            <path d="M22 6l-10 7L2 6"></path>
+                        </svg>
+                        Email
+                    </a>
+                    <a href="https://www.linkedin.com/in/ph%E1%BA%A1m-ng%E1%BB%8Dc-trai-575178396/" class="social-btn" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://www.facebook.com/trai.pham.127201" class="social-btn" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                        Facebook
+                    </a>
+                    <a href="https://www.instagram.com/_ti.ngc_pm04/" class="social-btn" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                        Instagram
+                    </a>
+                    <a href="https://www.tiktok.com/@slaylonely?_r=1&_t=ZS-92YKnTQchDc" class="social-btn" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 3v12a4 4 0 1 1-4-4"></path>
+                            <path d="M9 3c1.5 2 4 3 6 3v4c-2 0-4-1-6-2"></path>
+                        </svg>
+                        TikTok
+                    </a>
+                    <a href="https://discord.com/invite/vivacious_swan_63072" class="social-btn" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 12h.01M15 12h.01"></path>
+                            <path d="M7.5 7.5C9 6.5 15 6.5 16.5 7.5"></path>
+                            <path d="M5 17c4 3 10 3 14 0"></path>
+                            <path d="M3 5c6-2 12-2 18 0v13c-6 2-12 2-18 0V5z"></path>
+                        </svg>
+                        Discord
+                    </a>
+                </div>
+            </div>
+
+            
         </aside>
 
     </div>
 </div>
 
 <style>
+     
+
+.social-box{
+    margin-top: 18px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 14px 16px;
+    background: rgba(255,255,255,.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+[data-theme="dark"] .social-box{
+    background: rgba(20,20,24,.35);
+}
+
+ 
+.social-row{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;  
+}
+
+ 
+.social-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+    background: rgba(255,255,255,.8);
+    transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease, opacity .2s ease;
+    opacity: .9;
+}
+
+[data-theme="dark"] .social-btn{
+    background: rgba(20,20,24,.45);
+}
+
+ 
+.social-btn svg{
+    width: 18px;
+    height: 18px;
+}
+
+ 
+.social-btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0,0,0,.12);
+    opacity: 1;
+}
+
+
  
 
  

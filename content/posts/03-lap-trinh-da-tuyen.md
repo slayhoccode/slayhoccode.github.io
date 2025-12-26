@@ -1,5 +1,6 @@
 ---
 title: "Bài 3 — Lập trình đa tuyến (Multithreading) trong ứng dụng mạng"
+layout: "featured"
 date: 2025-12-26
 draft: false
 slug: "03-lap-trinh-da-tuyen"
