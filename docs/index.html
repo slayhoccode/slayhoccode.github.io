@@ -11,7 +11,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="canonical" href="http://localhost:1313/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.fd5566c526ae48aadabd950798a2dc3568536401560eae5caac3765a42a9e7b5.css" integrity="sha256-/VVmxSauSKravZUHmKLcNWhTZAFWDq5cqsN2WkKp57U=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5b90024cc9e94a73f17f8105810a8249495a51da3df1658618eaef16b59bb74f.css" integrity="sha256-W5ACTMnpSnPxf4EFgQqCSUlaUdo98WWGGOrvFrWbt08=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
@@ -140,7 +140,7 @@
     </path>
 </svg>
     </a>
-    <a href="mailto:phamtraidz@gmail.com" target="_blank" rel="noopener noreferrer me"
+    <a href="mailto:%20phamtraidz@gmail.com" target="_blank" rel="noopener noreferrer me"
         title="Email">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2"
     stroke-linecap="round" stroke-linejoin="round">
@@ -155,33 +155,126 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Socket Programming trong Java
+    <h2 class="entry-hint-parent">Bài 1 — Tổng quan về lập trình mạng
     </h2>
   </header>
   <div class="entry-content">
-    <p>Giới thiệu về Socket Programming Socket là endpoint của một kết nối hai chiều giữa hai chương trình chạy trên mạng.
-Các loại Socket TCP Socket: Kết nối tin cậy, có trình tự UDP Socket: Không kết nối, nhanh hơn Ví dụ TCP Server import java.net.; import java.io.;
-public class SimpleServer { public static void main(String[] args) throws IOException { ServerSocket serverSocket = new ServerSocket(8080); System.out.println(“Server đang chờ kết nối…”);
-...</p>
+    <p>Mục tiêu Hiểu client-server là gì, dữ liệu đi như thế nào trên mạng. Phân biệt TCP vs UDP. Nắm các khái niệm: IP, Port, Socket, Protocol. 1) Lập trình mạng là gì? Lập trình mạng là viết chương trình cho phép 2 (hoặc nhiều) máy trao đổi dữ liệu qua mạng bằng các giao thức (protocol) như TCP/UDP/HTTP.
+Một mô hình phổ biến:
+Server: lắng nghe (listen) tại một port Client: kết nối (connect) đến IP:port của server 2) Các mảnh ghép quan trọng IP address: địa chỉ máy (IPv4/IPv6) Port: cổng dịch vụ (0–65535). Ví dụ HTTP 80/443. Socket: “đầu nối” để app giao tiếp mạng Protocol: luật giao tiếp (TCP: tin cậy; UDP: nhanh) 3) TCP vs UDP (nhớ bằng 1 câu) TCP: “Gửi chắc chắn, có thứ tự, có kết nối” (reliable, ordered, connection-oriented) UDP: “Gửi nhanh, không hứa gì” (connectionless, best-effort) 4) Ví dụ cực nhỏ: kiểm tra DNS (InetAddress) import java.net.InetAddress; public class DnsDemo { public static void main(String[] args) throws Exception { InetAddress addr = InetAddress.getByName(&#34;google.com&#34;); System.out.println(&#34;Host: &#34; &#43; addr.getHostName()); System.out.println(&#34;IP: &#34; &#43; addr.getHostAddress()); } } </p>
   </div>
-  <footer class="entry-footer"><span title='2024-12-20 00:00:00 +0000 UTC'>December 20, 2024</span>&nbsp;·&nbsp;<span>1 phút</span></footer>
-  <a class="entry-link" aria-label="post link to Socket Programming trong Java" href="http://localhost:1313/posts/java-socket-programming/"></a>
+  <footer class="entry-footer"><span title='2025-12-26 00:00:00 +0000 UTC'>December 26, 2025</span>&nbsp;·&nbsp;<span>1 phút</span></footer>
+  <a class="entry-link" aria-label="post link to Bài 1 — Tổng quan về lập trình mạng" href="http://localhost:1313/posts/01-tong-quan-lap-trinh-mang/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">HTTP Request trong Java
+    <h2 class="entry-hint-parent">Bài 2 — Quản lý các luồng nhập xuất (I/O Streams)
     </h2>
   </header>
   <div class="entry-content">
-    <p>HTTP Client trong Java Java cung cấp nhiều cách để thực hiện HTTP request.
-Sử dụng HttpURLConnection import java.net.; import java.io.;
-public class HttpExample { public static void main(String[] args) throws Exception { URL url = new URL(“https://api.example.com/data&#34;); HttpURLConnection con = (HttpURLConnection) url.openConnection(); con.setRequestMethod(“GET”);
-int responseCode = con.getResponseCode(); System.out.println(&#34;Response Code: &#34; &#43; responseCode); BufferedReader in = new BufferedReader( new InputStreamReader(con.getInputStream())); String inputLine; StringBuffer response = new StringBuffer(); while ((inputLine = in.readLine()) != null) { response.append(inputLine); } in.close(); System.out.println(response.toString()); } }
+    <p>Mục tiêu Dùng InputStream/OutputStream và Reader/Writer đúng ngữ cảnh. Biết vì sao cần Buffered. Biết cách đóng stream an toàn bằng try-with-resources. 1) Text vs Binary Binary: ảnh, file zip, bytes thô → dùng InputStream/OutputStream Text: chuỗi có encoding (UTF-8) → dùng Reader/Writer 2) Buffered giúp gì? Giảm số lần gọi hệ điều hành → nhanh hơn, mượt hơn.
+3) Demo đọc/ghi text UTF-8 import java.io.*; import java.nio.charset.StandardCharsets; public class TextIODemo { public static void main(String[] args) throws Exception { String path = &#34;note.txt&#34;; try (Writer w = new BufferedWriter(new OutputStreamWriter( new FileOutputStream(path), StandardCharsets.UTF_8))) { w.write(&#34;Hello mạng máy tính!\n&#34;); } try (BufferedReader br = new BufferedReader(new InputStreamReader( new FileInputStream(path), StandardCharsets.UTF_8))) { System.out.println(br.readLine()); } } } </p>
+  </div>
+  <footer class="entry-footer"><span title='2025-12-26 00:00:00 +0000 UTC'>December 26, 2025</span>&nbsp;·&nbsp;<span>1 phút</span></footer>
+  <a class="entry-link" aria-label="post link to Bài 2 — Quản lý các luồng nhập xuất (I/O Streams)" href="http://localhost:1313/posts/02-quan-ly-luong-nhap-xuat/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Bài 3 — Lập trình đa tuyến (Multithreading) trong ứng dụng mạng
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Mục tiêu Tạo thread bằng Thread / Runnable. Hiểu vì sao server mạng cần đa tuyến. Biết lỗi race condition và cách chặn cơ bản. 1) Vì sao mạng cần đa tuyến? Server thường phải phục vụ nhiều client cùng lúc. Nếu xử lý 1 client theo kiểu “độc quyền”, các client khác sẽ bị chờ.
+2) Demo: tạo thread xử lý việc riêng public class ThreadDemo { public static void main(String[] args) { Runnable job = () -&gt; { for (int i = 1; i &lt;= 5; i&#43;&#43;) { System.out.println(Thread.currentThread().getName() &#43; &#34; -&gt; &#34; &#43; i); } }; new Thread(job, &#34;Worker-1&#34;).start(); new Thread(job, &#34;Worker-2&#34;).start(); } } 3) URL parsing Khi nhiều thread cùng sửa một biến chung → kết quả “hên xui”.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2024-12-19 00:00:00 +0000 UTC'>December 19, 2024</span>&nbsp;·&nbsp;<span>1 phút</span></footer>
-  <a class="entry-link" aria-label="post link to HTTP Request trong Java" href="http://localhost:1313/posts/java-http-request/"></a>
+  <footer class="entry-footer"><span title='2025-12-26 00:00:00 +0000 UTC'>December 26, 2025</span>&nbsp;·&nbsp;<span>1 phút</span></footer>
+  <a class="entry-link" aria-label="post link to Bài 3 — Lập trình đa tuyến (Multithreading) trong ứng dụng mạng" href="http://localhost:1313/posts/03-lap-trinh-da-tuyen/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Bài 4 — Quản lý địa chỉ kết nối mạng (IP, Port, DNS, URL)
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Mục tiêu Dùng InetAddress lấy IP, host. Dùng URL đọc thông tin endpoint. Hiểu localhost/127.0.0.1 và port. 1) Localhost là ai? localhost → thường map tới 127.0.0.1 (IPv4) hoặc ::1 (IPv6)
+Nó là máy của chính bạn.
+2) InetAddress import java.net.InetAddress; public class AddressDemo { public static void main(String[] args) throws Exception { InetAddress local = InetAddress.getLocalHost(); System.out.println(&#34;Local: &#34; &#43; local.getHostAddress()); InetAddress google = InetAddress.getByName(&#34;google.com&#34;); System.out.println(&#34;Google IP: &#34; &#43; google.getHostAddress()); } } 3) URL parsing import java.net.URL; public class UrlDemo { public static void main(String[] args) throws Exception { URL url = new URL(&#34;https://example.com:8080/path?q=1&#34;); System.out.println(url.getProtocol()); // https System.out.println(url.getHost()); // example.com System.out.println(url.getPort()); // 8080 System.out.println(url.getPath()); // /path System.out.println(url.getQuery()); // q=1 } } </p>
+  </div>
+  <footer class="entry-footer"><span title='2025-12-26 00:00:00 +0000 UTC'>December 26, 2025</span>&nbsp;·&nbsp;<span>1 phút</span></footer>
+  <a class="entry-link" aria-label="post link to Bài 4 — Quản lý địa chỉ kết nối mạng (IP, Port, DNS, URL)" href="http://localhost:1313/posts/04-quan-ly-dia-chi-ket-noi-mang/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Bài 5 — Lập trình Socket TCP trong Java
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Mục tiêu Viết được TCP server/client tối thiểu. Hiểu vòng đời: ServerSocket listen → accept() → Socket trao đổi dữ liệu. 1) TCP Echo Server (1 client) import java.io.*; import java.net.*; public class TcpEchoServer { public static void main(String[] args) throws Exception { int port = 9000; try (ServerSocket server = new ServerSocket(port)) { System.out.println(&#34;TCP Server listening on &#34; &#43; port); try (Socket socket = server.accept(); BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream())); BufferedWriter out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()))) { String line; while ((line = in.readLine()) != null) { out.write(&#34;ECHO: &#34; &#43; line); out.newLine(); out.flush(); } } } } } 2) TCP Client import java.io.*; import java.net.*; public class TcpClient { public static void main(String[] args) throws Exception { try (Socket socket = new Socket(&#34;127.0.0.1&#34;, 9000); BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream())); BufferedWriter out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())); BufferedReader console = new BufferedReader(new InputStreamReader(System.in))) { System.out.print(&#34;Nhap: &#34;); String msg = console.readLine(); out.write(msg); out.newLine(); out.flush(); System.out.println(&#34;Server: &#34; &#43; in.readLine()); } } } 3) Nâng cấp: nhiều client Ý tưởng: mỗi lần accept() → tạo thread handle client.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-12-26 00:00:00 +0000 UTC'>December 26, 2025</span>&nbsp;·&nbsp;<span>1 phút</span></footer>
+  <a class="entry-link" aria-label="post link to Bài 5 — Lập trình Socket TCP trong Java" href="http://localhost:1313/posts/05-socket-tcp/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Bài 6 — Đa tiến trình &amp; Tuần tự hoá đối tượng (Serialization) trong ứng dụng mạng
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Mục tiêu Hiểu “tiến trình” vs “luồng”. Biết cách serialize object để gửi qua TCP. 1) Tiến trình vs luồng Process: chương trình độc lập, bộ nhớ riêng Thread: chạy trong cùng process, chia sẻ bộ nhớ 2) Serialization là gì? Biến object thành bytes để gửi/ghi file.
+Ví dụ: class gửi qua mạng import java.io.Serializable; public class Message implements Serializable { private static final long serialVersionUID = 1L; public String from; public String text; public Message(String from, String text) { this.from = from; this.text = text; } @Override public String toString() { return from &#43; &#34;: &#34; &#43; text; } } 3) Gửi object qua TCP Server
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-12-26 00:00:00 +0000 UTC'>December 26, 2025</span>&nbsp;·&nbsp;<span>2 phút</span></footer>
+  <a class="entry-link" aria-label="post link to Bài 6 — Đa tiến trình & Tuần tự hoá đối tượng (Serialization) trong ứng dụng mạng" href="http://localhost:1313/posts/06-da-tien-trinh-va-serialization/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Bài 7 — Lập trình mạng UDP trong Java
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Mục tiêu Gửi/nhận UDP packet với DatagramSocket. Hiểu UDP không kết nối, có thể mất gói. 1) UDP Receiver (Server) import java.net.*; import java.nio.charset.StandardCharsets; public class UdpReceiver { public static void main(String[] args) throws Exception { try (DatagramSocket socket = new DatagramSocket(9200)) { byte[] buf = new byte[1024]; DatagramPacket packet = new DatagramPacket(buf, buf.length); System.out.println(&#34;UDP Receiver on 9200...&#34;); socket.receive(packet); String msg = new String(packet.getData(), 0, packet.getLength(), StandardCharsets.UTF_8); System.out.println(&#34;From &#34; &#43; packet.getAddress() &#43; &#34;:&#34; &#43; packet.getPort() &#43; &#34; -&gt; &#34; &#43; msg); } } } 2) UDP Sender (Client) import java.net.*; import java.nio.charset.StandardCharsets; public class UdpSender { public static void main(String[] args) throws Exception { try (DatagramSocket socket = new DatagramSocket()) { byte[] data = &#34;Hello UDP&#34;.getBytes(StandardCharsets.UTF_8); InetAddress host = InetAddress.getByName(&#34;127.0.0.1&#34;); DatagramPacket packet = new DatagramPacket(data, data.length, host, 9200); socket.send(packet); } } } Lỗi hay gặp
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-12-26 00:00:00 +0000 UTC'>December 26, 2025</span>&nbsp;·&nbsp;<span>1 phút</span></footer>
+  <a class="entry-link" aria-label="post link to Bài 7 — Lập trình mạng UDP trong Java" href="http://localhost:1313/posts/07-socket-udp/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Bài 8 — Lập trình Multicast trong Java
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Mục tiêu Hiểu multicast dùng cho broadcast nhóm. Viết demo join group &#43; nhận message. 1) Multicast là gì? Multicast = gửi dữ liệu tới một nhóm địa chỉ (ví dụ 239.x.x.x) để nhiều client cùng nhận.
+2) Multicast Receiver import java.net.*; import java.nio.charset.StandardCharsets; public class MulticastReceiver { public static void main(String[] args) throws Exception { InetAddress group = InetAddress.getByName(&#34;239.1.2.3&#34;); int port = 9300; try (MulticastSocket socket = new MulticastSocket(port)) { socket.joinGroup(group); byte[] buf = new byte[1024]; DatagramPacket packet = new DatagramPacket(buf, buf.length); System.out.println(&#34;Joined multicast group &#34; &#43; group &#43; &#34;:&#34; &#43; port); socket.receive(packet); String msg = new String(packet.getData(), 0, packet.getLength(), StandardCharsets.UTF_8); System.out.println(&#34;Received: &#34; &#43; msg); socket.leaveGroup(group); } } } 3) Multicast Sender import java.net.*; import java.nio.charset.StandardCharsets; public class MulticastSender { public static void main(String[] args) throws Exception { InetAddress group = InetAddress.getByName(&#34;239.1.2.3&#34;); int port = 9300; try (DatagramSocket socket = new DatagramSocket()) { byte[] data = &#34;Hello Multicast&#34;.getBytes(StandardCharsets.UTF_8); DatagramPacket packet = new DatagramPacket(data, data.length, group, port); socket.send(packet); } } } Lưu ý thực tế
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-12-26 00:00:00 +0000 UTC'>December 26, 2025</span>&nbsp;·&nbsp;<span>1 phút</span></footer>
+  <a class="entry-link" aria-label="post link to Bài 8 — Lập trình Multicast trong Java" href="http://localhost:1313/posts/08-multicast/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Bài 9 — Phân tán đối tượng trong Java bằng RMI
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Mục tiêu Hiểu RMI (Remote Method Invocation) = gọi method của object ở máy khác. Viết demo RMI Hello tối thiểu. 1) RMI là gì? RMI giúp bạn gọi:
+remoteObj.sayHello() như gọi local, nhưng thực tế chạy ở server.
+2) Tạo Remote Interface import java.rmi.Remote; import java.rmi.RemoteException; public interface HelloService extends Remote { String hello(String name) throws RemoteException; } 3) Implement service import java.rmi.RemoteException; import java.rmi.server.UnicastRemoteObject; public class HelloServiceImpl extends UnicastRemoteObject implements HelloService { public HelloServiceImpl() throws RemoteException {} @Override public String hello(String name) throws RemoteException { return &#34;Hello &#34; &#43; name &#43; &#34; from RMI!&#34;; } } 4) Server: bind vào registry import java.rmi.registry.LocateRegistry; import java.rmi.registry.Registry; public class RmiServer { public static void main(String[] args) throws Exception { Registry registry = LocateRegistry.createRegistry(1099); registry.rebind(&#34;hello&#34;, new HelloServiceImpl()); System.out.println(&#34;RMI Server ready&#34;); } } 5) Client: lookup và gọi import java.rmi.registry.LocateRegistry; import java.rmi.registry.Registry; public class RmiClient { public static void main(String[] args) throws Exception { Registry registry = LocateRegistry.getRegistry(&#34;127.0.0.1&#34;, 1099); HelloService svc = (HelloService) registry.lookup(&#34;hello&#34;); System.out.println(svc.hello(&#34;Boss&#34;)); } } Lỗi hay gặp
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-12-26 00:00:00 +0000 UTC'>December 26, 2025</span>&nbsp;·&nbsp;<span>1 phút</span></footer>
+  <a class="entry-link" aria-label="post link to Bài 9 — Phân tán đối tượng trong Java bằng RMI" href="http://localhost:1313/posts/09-java-rmi/"></a>
 </article>
     </main>
     

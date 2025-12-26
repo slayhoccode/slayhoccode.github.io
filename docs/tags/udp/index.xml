@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>UDP on Blog Lập Trình Mạng</title>
+    <link>http://localhost:1313/tags/udp/</link>
+    <description>Recent content in UDP on Blog Lập Trình Mạng</description>
+    <generator>Hugo -- 0.153.2</generator>
+    <language>vi</language>
+    <lastBuildDate>Fri, 26 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/udp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bài 7 — Lập trình mạng UDP trong Java</title>
+      <link>http://localhost:1313/posts/07-socket-udp/</link>
+      <pubDate>Fri, 26 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/07-socket-udp/</guid>
+      <description>UDP server/client với DatagramSocket, gửi nhận datagram, lưu ý mất gói.</description>
+    </item>
+    <item>
+      <title>Bài 8 — Lập trình Multicast trong Java</title>
+      <link>http://localhost:1313/posts/08-multicast/</link>
+      <pubDate>Fri, 26 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/08-multicast/</guid>
+      <description>Gửi 1 gói cho nhiều máy: joinGroup, multicast address, lưu ý mạng nội bộ.</description>
+    </item>
+  </channel>
+</rss>

@@ -20,7 +20,7 @@ publishDir = "docs"
 
 [[params.socialIcons]]
   name = "email"
-  url = "mailto:phamtraidz@gmail.com"
+  url = "mailto: phamtraidz@gmail.com"
 
 [[menu.main]]
   identifier = "home"

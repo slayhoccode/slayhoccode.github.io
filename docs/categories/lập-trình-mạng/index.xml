@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Lập Trình Mạng on Blog Lập Trình Mạng</title>
+    <link>http://localhost:1313/categories/l%E1%BA%ADp-tr%C3%ACnh-m%E1%BA%A1ng/</link>
+    <description>Recent content in Lập Trình Mạng on Blog Lập Trình Mạng</description>
+    <generator>Hugo -- 0.153.2</generator>
+    <language>vi</language>
+    <lastBuildDate>Fri, 26 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/l%E1%BA%ADp-tr%C3%ACnh-m%E1%BA%A1ng/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bài 1 — Tổng quan về lập trình mạng</title>
+      <link>http://localhost:1313/posts/01-tong-quan-lap-trinh-mang/</link>
+      <pubDate>Fri, 26 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/01-tong-quan-lap-trinh-mang/</guid>
+      <description>Khái niệm cơ bản: client-server, TCP/UDP, port, socket, mô hình OSI/TCP-IP, flow dữ liệu.</description>
+    </item>
+    <item>
+      <title>Bài 2 — Quản lý các luồng nhập xuất (I/O Streams)</title>
+      <link>http://localhost:1313/posts/02-quan-ly-luong-nhap-xuat/</link>
+      <pubDate>Fri, 26 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/02-quan-ly-luong-nhap-xuat/</guid>
+      <description>InputStream/OutputStream, Reader/Writer, Buffered, đóng stream đúng cách, text vs binary.</description>
+    </item>
+    <item>
+      <title>Bài 3 — Lập trình đa tuyến (Multithreading) trong ứng dụng mạng</title>
+      <link>http://localhost:1313/posts/03-lap-trinh-da-tuyen/</link>
+      <pubDate>Fri, 26 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/03-lap-trinh-da-tuyen/</guid>
+      <description>Thread, Runnable, race condition, synchronized, thread pool cơ bản.</description>
+    </item>
+    <item>
+      <title>Bài 4 — Quản lý địa chỉ kết nối mạng (IP, Port, DNS, URL)</title>
+      <link>http://localhost:1313/posts/04-quan-ly-dia-chi-ket-noi-mang/</link>
+      <pubDate>Fri, 26 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/04-quan-ly-dia-chi-ket-noi-mang/</guid>
+      <description>Làm việc với InetAddress, URL/URI, port, localhost, subnet cơ bản.</description>
+    </item>
+    <item>
+      <title>Bài 5 — Lập trình Socket TCP trong Java</title>
+      <link>http://localhost:1313/posts/05-socket-tcp/</link>
+      <pubDate>Fri, 26 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/05-socket-tcp/</guid>
+      <description>Xây dựng TCP Server/Client, read/write stream, xử lý nhiều client.</description>
+    </item>
+    <item>
+      <title>Bài 6 — Đa tiến trình &amp; Tuần tự hoá đối tượng (Serialization) trong ứng dụng mạng</title>
+      <link>http://localhost:1313/posts/06-da-tien-trinh-va-serialization/</link>
+      <pubDate>Fri, 26 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/06-da-tien-trinh-va-serialization/</guid>
+      <description>ProcessBuilder cơ bản &#43; gửi object qua mạng bằng ObjectInputStream/ObjectOutputStream.</description>
+    </item>
+    <item>
+      <title>Bài 7 — Lập trình mạng UDP trong Java</title>
+      <link>http://localhost:1313/posts/07-socket-udp/</link>
+      <pubDate>Fri, 26 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/07-socket-udp/</guid>
+      <description>UDP server/client với DatagramSocket, gửi nhận datagram, lưu ý mất gói.</description>
+    </item>
+    <item>
+      <title>Bài 8 — Lập trình Multicast trong Java</title>
+      <link>http://localhost:1313/posts/08-multicast/</link>
+      <pubDate>Fri, 26 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/08-multicast/</guid>
+      <description>Gửi 1 gói cho nhiều máy: joinGroup, multicast address, lưu ý mạng nội bộ.</description>
+    </item>
+    <item>
+      <title>Bài 9 — Phân tán đối tượng trong Java bằng RMI</title>
+      <link>http://localhost:1313/posts/09-java-rmi/</link>
+      <pubDate>Fri, 26 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/09-java-rmi/</guid>
+      <description>Khái niệm Remote object, registry, stub/skeleton, ví dụ RMI Hello.</description>
+    </item>
+  </channel>
+</rss>

@@ -5,7 +5,7 @@ url: "/about/"
 
 ## Xin chào! 👋
 
-Tôi là [Tên của bạn], sinh viên ngành Công nghệ Thông tin chuyên về Lập trình mạng.
+Tôi là Phạm Ngọc Trai, sinh viên ngành Công nghệ Thông tin chuyên về Lập trình mạng.
 
 ### Kỹ năng
 
@@ -15,10 +15,10 @@ Tôi là [Tên của bạn], sinh viên ngành Công nghệ Thông tin chuyên v
 
 ### Học vấn
 
-🎓 Đại học [Tên trường]  
+🎓 Đại học Công Nghệ TP.HCM
 📚 Chuyên ngành: Công nghệ Thông tin
 
 ### Liên hệ
 
-- 📧 Email: your-email@example.com
-- 💻 GitHub: [your-username](https://github.com/your-username)
+- 📧 Email: phamtraidz@gmail.com
+- 💻 GitHub: https://github.com/slayhoccode

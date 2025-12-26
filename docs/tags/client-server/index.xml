@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Client-Server on Blog Lập Trình Mạng</title>
+    <link>http://localhost:1313/tags/client-server/</link>
+    <description>Recent content in Client-Server on Blog Lập Trình Mạng</description>
+    <generator>Hugo -- 0.153.2</generator>
+    <language>vi</language>
+    <lastBuildDate>Fri, 26 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/client-server/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bài 5 — Lập trình Socket TCP trong Java</title>
+      <link>http://localhost:1313/posts/05-socket-tcp/</link>
+      <pubDate>Fri, 26 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/05-socket-tcp/</guid>
+      <description>Xây dựng TCP Server/Client, read/write stream, xử lý nhiều client.</description>
+    </item>
+  </channel>
+</rss>

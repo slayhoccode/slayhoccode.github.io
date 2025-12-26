@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>ObjectStream on Blog Lập Trình Mạng</title>
+    <link>http://localhost:1313/tags/objectstream/</link>
+    <description>Recent content in ObjectStream on Blog Lập Trình Mạng</description>
+    <generator>Hugo -- 0.153.2</generator>
+    <language>vi</language>
+    <lastBuildDate>Fri, 26 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/objectstream/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bài 6 — Đa tiến trình &amp; Tuần tự hoá đối tượng (Serialization) trong ứng dụng mạng</title>
+      <link>http://localhost:1313/posts/06-da-tien-trinh-va-serialization/</link>
+      <pubDate>Fri, 26 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/06-da-tien-trinh-va-serialization/</guid>
+      <description>ProcessBuilder cơ bản &#43; gửi object qua mạng bằng ObjectInputStream/ObjectOutputStream.</description>
+    </item>
+  </channel>
+</rss>

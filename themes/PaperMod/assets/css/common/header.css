@@ -1,92 +1,248 @@
-.nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: calc(var(--nav-width) + var(--gap) * 2);
-    margin-inline-start: auto;
-    margin-inline-end: auto;
-    line-height: var(--header-height);
+/* =========================
+   FULL-WIDTH + ULTRA SOFT HEADER
+   ========================= */
+
+:root{
+  --nav-radius: 18px;
+  --nav-blur: 16px;
+  --nav-pad-y: 12px;
+  --nav-pad-x: 18px;
+
+  --nav-bg-light: rgba(255,255,255,.72);
+  --nav-bg-dark: rgba(20,20,24,.55);
+
+  --nav-border-light: rgba(0,0,0,.06);
+  --nav-border-dark: rgba(255,255,255,.08);
+
+  --nav-shadow-light: 0 10px 30px rgba(0,0,0,.08);
+  --nav-shadow-dark: 0 16px 40px rgba(0,0,0,.45);
+
+  --pill-bg-light: rgba(0,0,0,.05);
+  --pill-bg-dark: rgba(255,255,255,.08);
+
+  --pill-border-light: rgba(0,0,0,.06);
+  --pill-border-dark: rgba(255,255,255,.10);
 }
 
-.nav a {
-    display: block;
+/* FULL WIDTH */
+.nav{
+  width: 100%;
+  max-width: none !important;
+  margin: 0 !important;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+
+  line-height: normal;
+  padding: var(--nav-pad-y) var(--nav-pad-x);
+  gap: 12px;
+
+  border-radius: var(--nav-radius);
+  border: 1px solid var(--nav-border-light);
+  background: var(--nav-bg-light);
+
+  backdrop-filter: blur(var(--nav-blur));
+  -webkit-backdrop-filter: blur(var(--nav-blur));
+
+  box-shadow: var(--nav-shadow-light);
+
+  /* chuyển động mềm hơn */
+  transition: background-color .25s ease, box-shadow .25s ease, border-color .25s ease;
 }
 
-.logo,
-#menu {
-    display: flex;
-    margin: auto var(--gap);
+[data-theme="dark"] .nav{
+  border-color: var(--nav-border-dark);
+  background: var(--nav-bg-dark);
+  box-shadow: var(--nav-shadow-dark);
 }
 
-.logo {
-    flex-wrap: inherit;
+/* Links: mềm, pill, hover dịu */
+.nav a{
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: transform .18s ease, background-color .18s ease, opacity .18s ease, box-shadow .18s ease;
 }
 
-.logo a {
-    font-size: 24px;
-    font-weight: 700;
+/* Logo + menu: bỏ margin auto để khỏi bị “giật” layout */
+.logo, #menu{
+  display: flex;
+  align-items: center;
+  margin: 0 !important;
 }
 
-.logo a img, .logo a svg {
-    display: inline;
-    vertical-align: middle;
-    pointer-events: none;
-    transform: translate(0, -10%);
-    border-radius: 6px;
-    margin-inline-end: 8px;
+/* Logo mềm hơn */
+.logo a{
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: .2px;
+  padding: 8px 12px;
+  border-radius: 999px;
 }
 
-button#theme-toggle {
-    font-size: 26px;
-    margin: auto 4px;
+.logo a:hover{
+  background: var(--pill-bg-light);
+}
+[data-theme="dark"] .logo a:hover{
+  background: var(--pill-bg-dark);
 }
 
-[data-theme="dark"] #moon {
-    display: none;
+.logo a img,
+.logo a svg{
+  border-radius: 12px;
+  margin-inline-end: 10px;
+  transform: translateY(-1px);
 }
 
-[data-theme="light"] #sun {
-    display: none;
+/* Menu cuộn ngang mượt */
+#menu{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 6px;
+
+  overflow-x: auto;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
 }
 
-#menu {
-    list-style: none;
-    word-break: keep-all;
-    overflow-x: auto;
-    white-space: nowrap;
+#menu::-webkit-scrollbar{ height: 8px; }
+#menu::-webkit-scrollbar-thumb{
+  background: rgba(0,0,0,.14);
+  border-radius: 999px;
+}
+[data-theme="dark"] #menu::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,.18);
+}
+#menu::-webkit-scrollbar-track{ background: transparent; }
+
+#menu li + li{ margin-inline-start: 0 !important; }
+
+#menu a{
+  font-size: 15px;
+  font-weight: 600;
+  padding: 9px 12px;
+  opacity: .86;
 }
 
-#menu li + li {
-    margin-inline-start: var(--gap);
+/* Hover “lụa”: không chói, không gắt */
+#menu a:hover{
+  opacity: 1;
+  transform: translateY(-1px);
+  background: var(--pill-bg-light);
+  box-shadow: 0 6px 16px rgba(0,0,0,.06);
+}
+[data-theme="dark"] #menu a:hover{
+  background: var(--pill-bg-dark);
+  box-shadow: 0 10px 24px rgba(0,0,0,.35);
 }
 
-#menu a {
-    font-size: 16px;
+/* Active: pill rõ nhưng vẫn mềm */
+#menu .active{
+  opacity: 1;
+  font-weight: 800;
+  background: var(--pill-bg-light);
+  border: 1px solid var(--pill-border-light);
+  box-shadow: 0 8px 18px rgba(0,0,0,.07);
+}
+[data-theme="dark"] #menu .active{
+  background: var(--pill-bg-dark);
+  border-color: var(--pill-border-dark);
+  box-shadow: 0 14px 30px rgba(0,0,0,.45);
 }
 
-#menu .active {
-    font-weight: 500;
-    border-bottom: 2px solid currentColor;
+/* Theme toggle mềm như menu item */
+button#theme-toggle{
+  font-size: 22px;
+  margin: 0 !important;
+  padding: 8px 12px;
+  border-radius: 999px;
+  transition: transform .18s ease, background-color .18s ease, box-shadow .18s ease;
 }
 
-.lang-switch li,
-.lang-switch ul,
-.logo-switches {
-    display: inline-flex;
-    margin: auto 4px;
+button#theme-toggle:hover{
+  transform: translateY(-1px);
+  background: var(--pill-bg-light);
+  box-shadow: 0 6px 16px rgba(0,0,0,.06);
+}
+[data-theme="dark"] button#theme-toggle:hover{
+  background: var(--pill-bg-dark);
+  box-shadow: 0 10px 24px rgba(0,0,0,.35);
 }
 
-.lang-switch {
-    display: flex;
-    flex-wrap: inherit;
+/* Lang switch cũng pill */
+.lang-switch, .logo-switches{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.lang-switch a{
+  font-size: 14px;
+  font-weight: 750;
+  padding: 8px 12px;
+  border-radius: 999px;
+  opacity: .86;
+}
+.lang-switch a:hover{
+  opacity: 1;
+  background: var(--pill-bg-light);
+}
+[data-theme="dark"] .lang-switch a:hover{
+  background: var(--pill-bg-dark);
 }
 
-.lang-switch a {
-    margin: auto 3px;
-    font-size: 16px;
-    font-weight: 500;
+/* Mobile: vẫn full width, giảm padding cho gọn */
+@media (max-width: 640px){
+  .nav{
+    padding: 10px 12px;
+    border-radius: 14px;
+    gap: 10px;
+  }
+  .logo a{ font-size: 16px; padding: 7px 10px; }
+  #menu a{ font-size: 14px; padding: 8px 11px; }
+}
+/* ===== FIX: header full-width, KHÔNG bo góc, sticky không bị lấp ===== */
+
+/* 1) Header luôn nổi trên nội dung khi scroll */
+.header{
+  position: sticky;
+  top: 0;
+  z-index: 9999; /* cao để không bị card/post che */
+  backdrop-filter: blur(var(--nav-blur));
+  -webkit-backdrop-filter: blur(var(--nav-blur));
 }
 
-.logo-switches {
-    flex-wrap: inherit;
+/* 2) Nav full-width nhưng không bo 4 góc */
+.nav{
+  border-radius: 0 !important;     /* bỏ bo */
+  margin: 0 !important;
+  width: 100%;
+  max-width: none !important;
+
+  /* nếu bạn muốn header “dính” sát mép màn hình luôn */
+  padding-left: var(--nav-pad-x);
+  padding-right: var(--nav-pad-x);
 }
+
+/* 3) Nếu theme đang bọc header bằng container bo góc, dẹp luôn */
+.header, .header > nav, .header .nav{
+  border-radius: 0 !important;
+}
+
+/* 4) Tránh hiệu ứng "bị lấp" do phần main kéo lên */
+.main{
+  position: relative;
+  z-index: 1;
+}
+
+/* 5) Mobile vẫn không bo góc */
+@media (max-width: 640px){
+  .nav{
+    border-radius: 0 !important;
+  }
+}
+.header{ backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
