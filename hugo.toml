@@ -8,7 +8,7 @@ publishDir = "docs"
 [params]
   ShowReadingTime = true
   ShowShareButtons = true
-
+  disableGoogleAnalytics = true
 
 [params.homeInfoParams]
   Title = "Chào mừng đến với Blog của tôi 👋"
