@@ -39,3 +39,9 @@ publishDir = "docs"
   name = "Giới thiệu"
   url = "/about/"
   weight = 30
+
+[[menu.main]]
+  identifier = "contact"
+  name = "Liên hệ"
+  url = "/contact/"
+  weight = 40  

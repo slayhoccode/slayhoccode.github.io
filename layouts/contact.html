@@ -1,0 +1,342 @@
+{{ define "main" }}
+<div class="contact-page">
+    <div class="contact-shell">
+
+        <!-- LEFT: INFO + FORM -->
+        <section class="contact-left">
+            <div class="contact-head">
+                <p class="kicker reveal-item" style="--delay: 0.1s">GET IN TOUCH</p>
+                <h1 class="title">
+                    <span class="line-wrapper"><span class="reveal-item" style="--delay: 0.2s">CONTACT</span></span>
+                    <span class="line-wrapper"><span class="reveal-item outlined" style="--delay: 0.3s">ME.</span></span>
+                </h1>
+                <p class="sub reveal-item" style="--delay: 0.4s">
+                    Gửi mình một tin nhắn. Mình sẽ phản hồi sớm nhất có thể.
+                </p>
+            </div>
+
+            <div class="info-cards reveal-item" style="--delay: 0.5s">
+                <a class="info-card" href="mailto:qctrong136@gmail.com" rel="noopener">
+                    <span class="ic">📧</span>
+                    <div class="ic-text">
+                        <div class="ic-label">Email</div>
+                        <div class="ic-value">phamtraidz@gmail.com</div>
+                    </div>
+                </a>
+
+                <a class="info-card" href="tel:+84398805019" rel="noopener">
+                    <span class="ic">📞</span>
+                    <div class="ic-text">
+                        <div class="ic-label">Phone</div>
+                        <div class="ic-value">+84 398 805 019</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="form-wrap reveal-item" style="--delay: 0.6s">
+                <form action="https://formspree.io/f/mregbpgr" method="POST" class="form">
+                    <div class="row">
+                        <div class="field">
+                            <label>Tên</label>
+                            <input type="text" name="name" placeholder="Tên của bạn *" required>
+                        </div>
+                        <div class="field">
+                            <label>Email</label>
+                            <input type="email" name="email" placeholder="Email *" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Nội dung</label>
+                        <textarea name="message" rows="5" placeholder="Bạn muốn nhắn gì? *" required></textarea>
+                    </div>
+
+                    <!-- Formspree recommend: hidden subject -->
+                    <input type="hidden" name="_subject" value="New message from Contact page">
+
+                    <button type="submit" class="btn-send">
+                        Gửi tin nhắn
+                        <span class="arrow">→</span>
+                    </button>
+
+                    
+                </form>
+            </div>
+        </section>
+
+        <!-- RIGHT: VISUAL -->
+        <aside class="contact-right">
+            <div class="visual reveal-image">
+                <img src="{{ "/avatar.jpg" | relURL }}" alt="Avatar">
+            </div>
+
+            <div class="mini reveal-item" style="--delay: 0.55s">
+                <div class="mini-box">
+                    <div class="mini-title">Quick links</div>
+                    <a href="{{ "/posts/" | relURL }}">→ Bài viết</a>
+                    <a href="{{ "/about/" | relURL }}">→ Giới thiệu</a>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+</div>
+
+<style>
+/* =========================
+   CONTACT (NEW UI)
+   - Keep header/footer
+   - Clean, card-ish, modern
+========================= */
+
+/* page spacing (không đập layout global) */
+.contact-page{
+    padding: 28px 0 40px;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+.contact-shell{
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0 18px; /* khớp với --nav-pad-x của header */
+
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 22px;
+    align-items: start;
+}
+
+/* LEFT */
+.contact-left{
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 22px;
+    background:
+        radial-gradient(900px 260px at 20% 0%, rgba(124,92,255,.10), transparent 55%),
+        radial-gradient(700px 220px at 90% 10%, rgba(34,211,238,.08), transparent 60%);
+    box-shadow: 0 10px 30px rgba(0,0,0,.06);
+}
+
+.kicker{
+    margin: 0 0 10px;
+    font-size: 11px;
+    letter-spacing: .42em;
+    font-weight: 800;
+    opacity: .75;
+}
+
+.title{
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(46px, 5vw, 78px);
+    font-weight: 900;
+    line-height: .9;
+    letter-spacing: -3px;
+    text-transform: uppercase;
+    color: #1a1a1a;
+}
+[data-theme="dark"] .title{ color: #f2f2f2; }
+
+.line-wrapper{ display:block; overflow:hidden; }
+.outlined{ color: transparent !important; -webkit-text-stroke: 2px currentColor; display: inline-block; }
+
+.sub{
+    margin: 14px 0 0;
+    opacity: .78;
+    max-width: 56ch;
+    line-height: 1.6;
+}
+
+/* info cards */
+.info-cards{
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+.info-card{
+    display:flex;
+    gap: 10px;
+    align-items:center;
+    text-decoration:none;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 12px 12px;
+    background: rgba(255,255,255,.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease, opacity .2s ease;
+}
+[data-theme="dark"] .info-card{ background: rgba(20,20,24,.45); }
+.info-card:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 16px 38px rgba(0,0,0,.10);
+    border-color: rgba(124,92,255,.35);
+}
+.ic{ font-size: 20px; }
+.ic-label{ font-size: 12px; opacity: .7; font-weight: 700; }
+.ic-value{ font-size: 14px; font-weight: 800; }
+
+/* form */
+.form-wrap{
+    margin-top: 16px;
+    border-top: 1px dashed var(--border);
+    padding-top: 16px;
+}
+
+.form{
+    display:flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.row{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.field label{
+    display:block;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    opacity: .75;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+.field input,
+.field textarea{
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 12px 12px;
+    background: rgba(255,255,255,.8);
+    outline: none;
+    transition: border-color .2s ease, transform .12s ease, background .2s ease;
+}
+[data-theme="dark"] .field input,
+[data-theme="dark"] .field textarea{
+    background: rgba(20,20,24,.35);
+}
+.field input:focus,
+.field textarea:focus{
+    border-color: rgba(34,211,238,.45);
+}
+
+.btn-send{
+    display:inline-flex;
+    align-items:center;
+    gap: 10px;
+    border: 1px solid rgba(124,92,255,.35);
+    background: rgba(124,92,255,.12);
+    border-radius: 14px;
+    padding: 12px 16px;
+    font-weight: 900;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    cursor:pointer;
+    width: fit-content;
+    transition: transform .15s ease, opacity .2s ease, box-shadow .2s ease;
+}
+.btn-send:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 16px 38px rgba(0,0,0,.10);
+}
+.arrow{ font-size: 16px; }
+
+.tiny{
+    margin: 0;
+    font-size: 12px;
+    opacity: .7;
+}
+
+/* RIGHT */
+.contact-right{
+    display:flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.visual{
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 18px 40px rgba(0,0,0,.10);
+    background: rgba(255,255,255,.02);
+}
+.visual img{
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+    display:block;
+}
+
+.mini-box{
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 14px;
+    background: rgba(255,255,255,.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+[data-theme="dark"] .mini-box{ background: rgba(20,20,24,.35); }
+
+.mini-title{
+    font-weight: 900;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    font-size: 12px;
+    opacity: .75;
+    margin-bottom: 10px;
+}
+.mini-box a{
+    display:block;
+    text-decoration:none;
+    padding: 8px 10px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    transition: background .2s ease, transform .15s ease;
+}
+.mini-box a:hover{
+    background: rgba(34,211,238,.10);
+    transform: translateY(-1px);
+}
+
+/* Animations */
+.reveal-item {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+    animation: revealUp 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    animation-delay: var(--delay);
+}
+@keyframes revealUp { to { opacity: 1; transform: translateY(0); } }
+
+.reveal-image {
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 0.35s;
+}
+@keyframes fadeIn { to { opacity: 1; } }
+
+/* Mobile */
+@media (max-width: 900px){
+    .contact-shell{
+        grid-template-columns: 1fr;
+    }
+    .row{
+        grid-template-columns: 1fr;
+    }
+    .visual img{
+        height: 320px;
+    }
+}
+</style>
+{{ end }}

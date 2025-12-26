@@ -1,137 +1,11 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
-
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
-<title>Giới thiệu | Blog Ngọc Trai</title>
-<meta name="keywords" content="">
-<meta name="description" content="Giới thiệu - Blog Ngọc Trai">
-<meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/about/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.db09c7171cb29a72ea83796558748895ee299fa100669614d4d3aae7e72daec1.css" integrity="sha256-2wnHFxyymnLqg3llWHSIle4pn6EAZpYU1NOq5&#43;ctrsE=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/about/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
-    </style>
-</noscript>
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
-    }
-
-</script>
-</head>
-<body id="top">
-    <header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Blog Ngọc Trai (Alt + H)">Blog Ngọc Trai</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="http://localhost:1313/" title="Home">
-                    <span>Home</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://localhost:1313/posts/" title="Blog">
-                    <span>Blog</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://localhost:1313/about/" title="Giới thiệu">
-                    <span class="active">Giới thiệu</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://localhost:1313/contact/" title="Liên hệ">
-                    <span>Liên hệ</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<main class="main">
+{{ define "main" }}
 <div class="about-page">
     <div class="about-shell">
 
-        
+        <!-- HERO SECTION -->
         <section class="about-hero">
             <div class="hero-image reveal-image">
-                <img src="/avatar.jpg" alt="Profile Photo">
+                <img src="{{ "/avatar.jpg" | relURL }}" alt="Profile Photo">
             </div>
             
             <div class="hero-content">
@@ -155,7 +29,7 @@
             </div>
         </section>
 
-        
+        <!-- TESTIMONIALS -->
         <section class="testimonials reveal-item" style="--delay: 0.5s">
             <h2 class="section-title">Đánh giá từ mọi người</h2>
             
@@ -197,14 +71,14 @@
                 </div>
             </div>
         </section>
-        
+        <!-- CERTIFICATES -->
         <section class="certificates-section reveal-item" style="--delay: 0.7s">
             <h2 class="section-title">Chứng chỉ & Thành tựu</h2>
             
             <div class="certificates-grid">
                 <div class="certificate-card">
                     <div class="cert-image">
-                        <img src="/JavaScript%20Essentials%201.jpg" alt="JavaScript Essentials 1">
+                        <img src="{{ "JavaScript Essentials 1.jpg" | relURL }}" alt="JavaScript Essentials 1">
                         <div class="cert-overlay">
                             <span class="view-cert">Xem chi tiết</span>
                         </div>
@@ -217,7 +91,7 @@
 
                 <div class="certificate-card">
                     <div class="cert-image">
-                        <img src="/JavaScript%20Essentials%202.jpg" alt="JavaScript Essentials 2">
+                        <img src="{{ "JavaScript Essentials 2.jpg" | relURL }}" alt="JavaScript Essentials 2">
                         <div class="cert-overlay">
                             <span class="view-cert">Xem chi tiết</span>
                         </div>
@@ -230,7 +104,7 @@
 
                 <div class="certificate-card">
                     <div class="cert-image">
-                        <img src="/Networking%20Basics.jpg" alt="Networking Basics">
+                        <img src="{{ "Networking Basics.jpg" | relURL }}" alt="Networking Basics">
                         <div class="cert-overlay">
                             <span class="view-cert">Xem chi tiết</span>
                         </div>
@@ -242,13 +116,13 @@
                 </div>
             </div>
         </section>
-        
+        <!-- CTA SECTION -->
         <section class="cta-section reveal-item" style="--delay: 0.8s">
             <h2>Sẵn sàng hợp tác?</h2>
             <p>Tôi luôn mở lòng với những dự án thú vị và cơ hội mới. Hãy liên hệ với tôi!</p>
             <div class="cta-buttons">
-                <a href="/contact/" class="btn-primary">Liên hệ ngay</a>
-                <a href="/posts/" class="btn-secondary">Xem bài viết</a>
+                <a href="{{ "/contact/" | relURL }}" class="btn-primary">Liên hệ ngay</a>
+                <a href="{{ "/posts/" | relURL }}" class="btn-secondary">Xem bài viết</a>
             </div>
             <div class="skills-grid">
                 <div class="skill-box">
@@ -279,7 +153,7 @@
     </div>
 </div>
 
-
+<!-- Lightbox for certificates -->
 <div id="cert-lightbox" class="cert-lightbox">
     <span class="lightbox-close">&times;</span>
     <img class="lightbox-content" id="lightbox-img">
@@ -287,7 +161,7 @@
 </div>
 
 <script>
-
+// Certificate lightbox
 document.addEventListener('DOMContentLoaded', function() {
     const certCards = document.querySelectorAll('.certificate-card');
     const lightbox = document.getElementById('cert-lightbox');
@@ -322,7 +196,9 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <style>
- 
+/* =========================
+   ABOUT PAGE
+========================= */
 
 .about-page {
     padding: 40px 0 60px;
@@ -334,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
     padding: 0 18px;
 }
 
- 
+/* HERO SECTION */
 .about-hero {
     display: grid;
     grid-template-columns: 420px 1fr;
@@ -407,7 +283,7 @@ document.addEventListener('DOMContentLoaded', function() {
     opacity: 1;
 }
 
- 
+/* TESTIMONIALS */
 .testimonials {
     margin-bottom: 80px;
 }
@@ -477,7 +353,7 @@ document.addEventListener('DOMContentLoaded', function() {
     opacity: .7;
 }
 
- 
+/* SKILLS */
 .skills-section {
     margin-bottom: 80px;
 }
@@ -527,7 +403,7 @@ document.addEventListener('DOMContentLoaded', function() {
     line-height: 1.5;
 }
 
- 
+/* CERTIFICATES */
 .certificates-section {
     margin-bottom: 80px;
 }
@@ -620,16 +496,16 @@ document.addEventListener('DOMContentLoaded', function() {
     opacity: .7;
     margin: 0;
 }
- 
+/* CTA SECTION – XL VERSION */
 .cta-section {
     text-align: center;
     border: 1px solid var(--border);
-    border-radius: 30px;               
-    padding: 80px 50px;               
+    border-radius: 30px;              /* 24 → 36 */
+    padding: 80px 50px;              /* 60 40 → 120 80 */
     background:
         radial-gradient(1400px 500px at 50% 0%, rgba(34,211,238,.14), transparent 60%),
         rgba(255,255,255,.75);
-    backdrop-filter: blur(11px);       
+    backdrop-filter: blur(11px);      /* 10 → 14 */
     -webkit-backdrop-filter: blur(14px);
 }
 
@@ -639,20 +515,20 @@ document.addEventListener('DOMContentLoaded', function() {
         rgba(20,20,24,.55);
 }
 
- 
+/* TITLE */
 .cta-section h2 {
-    font-size: clamp(64px, 6vw, 88px);  
+    font-size: clamp(64px, 6vw, 88px); /* ~x2 */
     font-weight: 900;
-    letter-spacing: -3px;              
-    margin: 0 0 24px;                  
+    letter-spacing: -3px;             /* -2 → -3 */
+    margin: 0 0 24px;                 /* 16 → 32 */
 }
 
- 
+/* TEXT */
 .cta-section p {
-    font-size: 28px;                   
+    font-size: 28px;                  /* 18 → 28 */
     opacity: .88;
-    margin: 0 0 64px;                  
-    max-width: 75ch;                   
+    margin: 0 0 64px;                 /* 32 → 64 */
+    max-width: 75ch;                  /* 55 → 75 */
     margin-left: auto;
     margin-right: auto;
     line-height: 1.6;
@@ -705,7 +581,7 @@ document.addEventListener('DOMContentLoaded', function() {
     box-shadow: 0 20px 50px rgba(0,0,0,.15);
 }
 
- 
+/* Animations */
 .reveal-item {
     display: inline-block;
     opacity: 0;
@@ -731,7 +607,7 @@ document.addEventListener('DOMContentLoaded', function() {
     to { opacity: 1; }
 }
 
- 
+/* Mobile */
 @media (max-width: 900px) {
     .about-hero {
         grid-template-columns: 1fr;
@@ -765,7 +641,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 }
 
- 
+/* LIGHTBOX */
 .cert-lightbox {
     display: none;
     position: fixed;
@@ -838,84 +714,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 }
 </style>
-
-    </main>
-    
-<footer class="footer">
-        <span>&copy; 2025 <a href="http://localhost:1313/">Blog Ngọc Trai</a></span> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-
-<script>
-    let menu = document.getElementById('menu');
-    if (menu) {
-        
-        const scrollPosition = localStorage.getItem("menu-scroll-position");
-        if (scrollPosition) {
-            menu.scrollLeft = parseInt(scrollPosition, 10);
-        }
-        
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        const html = document.querySelector("html");
-        if (html.dataset.theme === "dark") {
-            html.dataset.theme = 'light';
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            html.dataset.theme = 'dark';
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-</body>
-
-</html>
+{{ end }}

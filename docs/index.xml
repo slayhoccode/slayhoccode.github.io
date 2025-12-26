@@ -74,24 +74,16 @@
     <item>
       <title>Giới thiệu</title>
       <link>http://localhost:1313/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 26 Dec 2025 00:00:00 +0700</pubDate>
       <guid>http://localhost:1313/about/</guid>
-      <description>&lt;h2 id=&#34;xin-chào-&#34;&gt;Xin chào! 👋&lt;/h2&gt;
-&lt;p&gt;Tôi là Phạm Ngọc Trai, sinh viên ngành Công nghệ Thông tin chuyên về Lập trình mạng.&lt;/p&gt;
-&lt;h3 id=&#34;kỹ-năng&#34;&gt;Kỹ năng&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Java&lt;/strong&gt;: Core Java, Spring Framework, Network Programming&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;JavaScript&lt;/strong&gt;: ES6+, Node.js, React&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Khác&lt;/strong&gt;: Git, Database, RESTful API&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;học-vấn&#34;&gt;Học vấn&lt;/h3&gt;
-&lt;p&gt;🎓 Đại học Công Nghệ TP.HCM
-📚 Chuyên ngành: Công nghệ Thông tin&lt;/p&gt;
-&lt;h3 id=&#34;liên-hệ&#34;&gt;Liên hệ&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;📧 Email: &lt;a href=&#34;mailto:phamtraidz@gmail.com&#34;&gt;phamtraidz@gmail.com&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;💻 GitHub: &lt;a href=&#34;https://github.com/slayhoccode&#34;&gt;https://github.com/slayhoccode&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description>
+      <description></description>
+    </item>
+    <item>
+      <title>Liên hệ</title>
+      <link>http://localhost:1313/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/contact/</guid>
+      <description></description>
     </item>
   </channel>
 </rss>
