@@ -35,13 +35,19 @@ publishDir = "docs"
   weight = 20
 
 [[menu.main]]
+  identifier = "duan"
+  name = "Dự án"
+  url = "/duan/"
+  weight = 30
+
+[[menu.main]]
   identifier = "about"
   name = "Giới thiệu"
   url = "/about/"
-  weight = 30
+  weight = 40
 
 [[menu.main]]
   identifier = "contact"
   name = "Liên hệ"
   url = "/contact/"
-  weight = 40  
+  weight = 50  
