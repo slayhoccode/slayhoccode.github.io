@@ -238,7 +238,136 @@
                 </div>
             </div>
         </section>
+        <section class="career-section reveal-item" style="--delay: 0.6s">
+    <h2 class="section-title">Định hướng nghề nghiệp</h2>
+    
+    <div class="career-intro">
+        <p>Mục tiêu dài hạn của tôi là trở thành một chuyên gia toàn diện trong lĩnh vực phát triển phần mềm</p>
+    </div>
 
+    <div class="career-goals">
+        <div class="goal-card">
+            <div class="goal-icon">🎨</div>
+            <h3>Frontend Developer</h3>
+            <p>Xây dựng giao diện người dùng đẹp mắt, tương tác mượt mà</p>
+        </div>
+        <div class="goal-card">
+            <div class="goal-icon">⚙️</div>
+            <h3>Backend Developer</h3>
+            <p>Phát triển hệ thống server mạnh mẽ, bảo mật cao</p>
+        </div>
+        <div class="goal-card">
+            <div class="goal-icon">🚀</div>
+            <h3>FullStack Developer</h3>
+            <p>Làm chủ toàn bộ quy trình phát triển ứng dụng</p>
+        </div>
+    </div>
+
+    <div class="roadmap-section">
+        <h3 class="roadmap-heading">Lộ trình phát triển</h3>
+        
+        <div class="roadmap-grid">
+            
+            <div class="roadmap-card">
+                <div class="phase-header">
+                    <span class="phase-number">01</span>
+                    <div class="phase-info">
+                        <h4>Frontend Foundation</h4>
+                        <span class="phase-time">6-12 tháng</span>
+                    </div>
+                </div>
+                
+                <div class="phase-tags">
+                    <span class="tag">HTML/CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">React.js</span>
+                    <span class="tag">Tailwind</span>
+                    <span class="tag">Git</span>
+                </div>
+                
+                <ul class="phase-list">
+                    <li>Nắm vững HTML, CSS, JavaScript cơ bản</li>
+                    <li>Học React và xây dựng 5-10 dự án</li>
+                    <li>Thực hành responsive design</li>
+                    <li>Tham gia dự án open source</li>
+                </ul>
+            </div>
+
+            
+            <div class="roadmap-card">
+                <div class="phase-header">
+                    <span class="phase-number">02</span>
+                    <div class="phase-info">
+                        <h4>Backend Development</h4>
+                        <span class="phase-time">12-18 tháng</span>
+                    </div>
+                </div>
+                
+                <div class="phase-tags">
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Express</span>
+                    <span class="tag">MongoDB</span>
+                    <span class="tag">PostgreSQL</span>
+                    <span class="tag">API</span>
+                </div>
+                
+                <ul class="phase-list">
+                    <li>Học Node.js và xây dựng API</li>
+                    <li>Thực hành với databases</li>
+                    <li>Implement authentication</li>
+                    <li>Tối ưu hiệu năng backend</li>
+                </ul>
+            </div>
+
+            
+            <div class="roadmap-card">
+                <div class="phase-header">
+                    <span class="phase-number">03</span>
+                    <div class="phase-info">
+                        <h4>FullStack Mastery</h4>
+                        <span class="phase-time">18-30 tháng</span>
+                    </div>
+                </div>
+                
+                <div class="phase-tags">
+                    <span class="tag">Next.js</span>
+                    <span class="tag">TypeScript</span>
+                    <span class="tag">Docker</span>
+                    <span class="tag">AWS</span>
+                    <span class="tag">CI/CD</span>
+                </div>
+                
+                <ul class="phase-list">
+                    <li>Xây dựng ứng dụng fullstack hoàn chỉnh</li>
+                    <li>Học DevOps và deployment</li>
+                    <li>Thực hành cloud platforms</li>
+                    <li>Tham gia dự án thực tế với team</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="learning-methods">
+        <h3 class="methods-heading">Phương pháp học tập</h3>
+        <div class="methods-grid">
+            <div class="method-item">
+                <span class="method-icon">📚</span>
+                <h4>Học lý thuyết</h4>
+                <p>Đọc tài liệu, xem courses, tham gia bootcamps</p>
+            </div>
+            <div class="method-item">
+                <span class="method-icon">💻</span>
+                <h4>Thực hành</h4>
+                <p>Xây dựng dự án cá nhân, clone ứng dụng thực tế</p>
+            </div>
+            <div class="method-item">
+                <span class="method-icon">🤝</span>
+                <h4>Cộng đồng</h4>
+                <p>Tham gia meetups, hackathons, open source</p>
+            </div>
+        </div>
+    </div>
+</section>
         
         <section class="certificates-section reveal-item" style="--delay: 0.6s">
             <h2 class="section-title">Chứng chỉ & Thành tựu</h2>
@@ -925,6 +1054,178 @@ document.addEventListener('DOMContentLoaded', function() {
         max-width: 95%;
         max-height: 70vh;
     }
+}
+ 
+.career-section { margin-bottom: 80px; }
+
+ 
+.career-intro{
+  text-align: center;
+  max-width: 70ch;
+  margin: 0 auto 48px;
+}
+.career-intro p{ font-size: 17px; line-height: 1.7; opacity: .88; }
+
+ 
+:root{
+  --grid-max: 1100px;
+  --grid-gap: 24px;
+  --grid-min: 350px;
+  --card-pad: 28px;
+}
+
+ 
+.career-goals{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--grid-min), 1fr));
+  gap: var(--grid-gap);
+  max-width: var(--grid-max);
+  margin: 0 auto 60px;
+  align-items: stretch;
+}
+
+.goal-card{
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: var(--card-pad);
+  text-align: center;
+  background: rgba(255,255,255,.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+[data-theme="dark"] .goal-card{ background: rgba(20,20,24,.45); }
+.goal-card:hover{ transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,.12); }
+.goal-icon{ font-size: 48px; margin-bottom: 16px; }
+
+.goal-card h3{
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0 0 10px;
+  color: #1a1a1a;
+}
+[data-theme="dark"] .goal-card h3{ color: #f2f2f2; }
+
+.goal-card p{
+  font-size: 14px;
+  opacity: .75;
+  margin: 0;
+  line-height: 1.6;
+}
+
+ 
+.roadmap-section{ margin-bottom: 60px; }
+.roadmap-heading{
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin: 0 0 32px;
+  text-align: center;
+  color: #1a1a1a;
+}
+[data-theme="dark"] .roadmap-heading{ color: #f2f2f2; }
+
+.roadmap-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--grid-min), 1fr));
+  gap: var(--grid-gap);
+  max-width: var(--grid-max);
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.roadmap-card{
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  background: rgba(255,255,255,.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+[data-theme="dark"] .roadmap-card{ background: rgba(20,20,24,.45); }
+.roadmap-card:hover{ transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,.12); }
+
+.phase-header{ display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+.phase-number{ font-size: 28px; font-weight: 900; color: #7c5cff; opacity: .3; line-height: 1; }
+[data-theme="dark"] .phase-number{ color: #22d3ee; }
+
+.phase-info h4{
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0 0 4px;
+  color: #1a1a1a;
+}
+[data-theme="dark"] .phase-info h4{ color: #f2f2f2; }
+
+.phase-time{ font-size: 13px; opacity: .6; font-weight: 600; }
+
+.phase-tags{ display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.tag{
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(124,92,255,.1);
+  font-size: 11px;
+  font-weight: 700;
+  color: #7c5cff;
+  border: 1px solid rgba(124,92,255,.2);
+}
+[data-theme="dark"] .tag{
+  background: rgba(34,211,238,.15);
+  color: #22d3ee;
+  border-color: rgba(34,211,238,.3);
+}
+
+.phase-list{ margin: 0; padding-left: 20px; }
+.phase-list li{ font-size: 14px; line-height: 1.7; opacity: .85; margin-bottom: 8px; }
+.phase-list li:last-child{ margin-bottom: 0; }
+
+ 
+.learning-methods{ text-align: center; }
+.methods-heading{
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin: 0 0 32px;
+  text-align: center;
+  color: #1a1a1a;
+}
+[data-theme="dark"] .methods-heading{ color: #f2f2f2; }
+
+.methods-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--grid-min), 1fr));
+  gap: var(--grid-gap);
+  max-width: var(--grid-max);
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.method-item{
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: var(--card-pad);
+  background: rgba(255,255,255,.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+[data-theme="dark"] .method-item{ background: rgba(20,20,24,.45); }
+.method-item:hover{ transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,.12); }
+
+.method-icon{ font-size: 40px; display: block; margin-bottom: 16px; }
+.method-item h4{ font-size: 17px; font-weight: 800; margin: 0 0 10px; color: #1a1a1a; }
+[data-theme="dark"] .method-item h4{ color: #f2f2f2; }
+.method-item p{ font-size: 14px; opacity: .75; margin: 0; line-height: 1.6; }
+
+ 
+@media (max-width: 900px){
+  :root{ --grid-min: 1fr; }  
+  .career-goals, .roadmap-grid, .methods-grid{
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
 }
 </style>
 
