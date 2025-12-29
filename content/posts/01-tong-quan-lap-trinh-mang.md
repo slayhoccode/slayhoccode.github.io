@@ -19,18 +19,20 @@ Lập trình mạng là viết chương trình cho phép **2 (hoặc nhiều) m�
 Một mô hình phổ biến:
 - **Server**: lắng nghe (listen) tại một **port**
 - **Client**: kết nối (connect) đến IP:port của server
-
+![Mô hình Client – Server](/anh1.jpg)
 ## 2) Các mảnh ghép quan trọng
 - **IP address**: địa chỉ máy (IPv4/IPv6)
 - **Port**: cổng dịch vụ (0–65535). Ví dụ HTTP 80/443.
 - **Socket**: “đầu nối” để app giao tiếp mạng
 - **Protocol**: luật giao tiếp (TCP: tin cậy; UDP: nhanh)
 
+![IP – Port – Socket](/anh2.png)
 ## 3) TCP vs UDP (nhớ bằng 1 câu)
 - **TCP**: “Gửi chắc chắn, có thứ tự, có kết nối” (reliable, ordered, connection-oriented)
 - **UDP**: “Gửi nhanh, không hứa gì” (connectionless, best-effort)
-
+![So sánh TCP và UDP](/anh3.jpg)
 ## 4) Ví dụ cực nhỏ: kiểm tra DNS (InetAddress)
+![Quy trình phân giải DNS](/anh4.jpg)
 ```java
 import java.net.InetAddress;
 

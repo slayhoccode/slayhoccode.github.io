@@ -160,7 +160,8 @@
 <p>Một mô hình phổ biến:</p>
 <ul>
 <li><strong>Server</strong>: lắng nghe (listen) tại một <strong>port</strong></li>
-<li><strong>Client</strong>: kết nối (connect) đến IP:port của server</li>
+<li><strong>Client</strong>: kết nối (connect) đến IP:port của server
+<img alt="Mô hình Client – Server" loading="lazy" src="/anh1.jpg"></li>
 </ul>
 <h2 id="2-các-mảnh-ghép-quan-trọng">2) Các mảnh ghép quan trọng</h2>
 <ul>
@@ -169,12 +170,15 @@
 <li><strong>Socket</strong>: “đầu nối” để app giao tiếp mạng</li>
 <li><strong>Protocol</strong>: luật giao tiếp (TCP: tin cậy; UDP: nhanh)</li>
 </ul>
+<p><img alt="IP – Port – Socket" loading="lazy" src="/anh2.png"></p>
 <h2 id="3-tcp-vs-udp-nhớ-bằng-1-câu">3) TCP vs UDP (nhớ bằng 1 câu)</h2>
 <ul>
 <li><strong>TCP</strong>: “Gửi chắc chắn, có thứ tự, có kết nối” (reliable, ordered, connection-oriented)</li>
-<li><strong>UDP</strong>: “Gửi nhanh, không hứa gì” (connectionless, best-effort)</li>
+<li><strong>UDP</strong>: “Gửi nhanh, không hứa gì” (connectionless, best-effort)
+<img alt="So sánh TCP và UDP" loading="lazy" src="/anh3.jpg"></li>
 </ul>
 <h2 id="4-ví-dụ-cực-nhỏ-kiểm-tra-dns-inetaddress">4) Ví dụ cực nhỏ: kiểm tra DNS (InetAddress)</h2>
+<p><img alt="Quy trình phân giải DNS" loading="lazy" src="/anh4.jpg"></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.net.InetAddress;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DnsDemo</span> {
