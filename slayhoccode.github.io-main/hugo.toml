@@ -1,0 +1,53 @@
+baseURL = "https://slayhoccode.github.io/"
+languageCode = "vi"
+title = "Blog Ngọc Trai"
+theme = "PaperMod"
+
+publishDir = "docs"
+
+[params]
+  ShowReadingTime = true
+  ShowShareButtons = true
+  disableGoogleAnalytics = true
+
+[params.homeInfoParams]
+  Title = "Chào mừng đến với Blog của tôi 👋"
+  Content = "Chia sẻ kiến thức về lập trình Java & JavaScript, Spring Boot"
+
+[[params.socialIcons]]
+  name = "github"
+  url = "https://github.com/slayhoccode"
+
+[[params.socialIcons]]
+  name = "email"
+  url = "mailto: phamtraidz@gmail.com"
+
+[[menu.main]]
+  identifier = "home"
+  name = "Home"
+  url = "/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "posts"
+  name = "Blog"
+  url = "/posts/"
+  weight = 20
+
+[[menu.main]]
+  identifier = "duan"
+  name = "Dự án"
+  url = "/duan/"
+  weight = 30
+
+[[menu.main]]
+  identifier = "about"
+  name = "Giới thiệu"
+  url = "/about/"
+  weight = 40
+
+[[menu.main]]
+  identifier = "contact"
+  name = "Liên hệ"
+  url = "/contact/"
+  weight = 50  

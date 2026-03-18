@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Bài 9 — Phân tán đối tượng trong Java bằng RMI | Blog Ngọc Trai</title>
+<meta name="keywords" content="Java, RMI, Distributed, Remote">
+<meta name="description" content="Khái niệm Remote object, registry, stub/skeleton, ví dụ RMI Hello.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/09-java-rmi-copy/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0cbe547f8a23fc1fa0961a38c51a67661d207a3d70858cf3d5ab990bf216c657.css" integrity="sha256-DL5Uf4oj/B&#43;glho4xRpnZh0gej1whYzz1auZC/IWxlc=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/09-java-rmi-copy/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Blog Ngọc Trai (Alt + H)">Blog Ngọc Trai</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/posts/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/duan/" title="Dự án">
+                    <span>Dự án</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="Giới thiệu">
+                    <span>Giới thiệu</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/contact/" title="Liên hệ">
+                    <span>Liên hệ</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+<section class="single-post container">
+  <article class="post-article">
+    <header class="post-header">
+      <h1 class="post-title">Bài 9 — Phân tán đối tượng trong Java bằng RMI</h1>
+      <div class="post-meta">
+        <time datetime="2025-12-26 00:00:00 &#43;0000 UTC">26 Dec 2025</time>
+        <span class="dot">•</span>
+        <span>1 min đọc</span>
+        
+        <span class="dot">•</span>
+        <div class="post-tags-inline">
+          <span class="tag">Java</span><span class="tag">RMI</span><span class="tag">Distributed</span><span class="tag">Remote</span>
+        </div>
+        
+      </div>
+    </header>
+
+    <div class="post-grid">
+      <main class="post-content">
+        <h2 id="mục-tiêu">Mục tiêu</h2>
+<ul>
+<li>Hiểu RMI (Remote Method Invocation) = gọi method của object ở máy khác.</li>
+<li>Viết demo RMI Hello tối thiểu.</li>
+</ul>
+<h2 id="1-rmi-là-gì">1) RMI là gì?</h2>
+<p>RMI giúp bạn gọi:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>remoteObj.<span style="color:#a6e22e">sayHello</span>()
+</span></span></code></pre></div><p>như gọi local, nhưng thực tế chạy ở server.</p>
+<h2 id="2-tạo-remote-interface">2) Tạo Remote Interface</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.rmi.Remote;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.rmi.RemoteException;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">HelloService</span> <span style="color:#66d9ef">extends</span> Remote {
+</span></span><span style="display:flex;"><span>    String <span style="color:#a6e22e">hello</span>(String name) <span style="color:#66d9ef">throws</span> RemoteException;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="3-implement-service">3) Implement service</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.rmi.RemoteException;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.rmi.server.UnicastRemoteObject;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloServiceImpl</span> <span style="color:#66d9ef">extends</span> UnicastRemoteObject <span style="color:#66d9ef">implements</span> HelloService {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">HelloServiceImpl</span>() <span style="color:#66d9ef">throws</span> RemoteException {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">hello</span>(String name) <span style="color:#66d9ef">throws</span> RemoteException {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Hello &#34;</span> <span style="color:#f92672">+</span> name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; from RMI!&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="4-server-bind-vào-registry">4) Server: bind vào registry</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.rmi.registry.LocateRegistry;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.rmi.registry.Registry;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RmiServer</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        Registry registry <span style="color:#f92672">=</span> LocateRegistry.<span style="color:#a6e22e">createRegistry</span>(1099);
+</span></span><span style="display:flex;"><span>        registry.<span style="color:#a6e22e">rebind</span>(<span style="color:#e6db74">&#34;hello&#34;</span>, <span style="color:#66d9ef">new</span> HelloServiceImpl());
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;RMI Server ready&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="5-client-lookup-và-gọi">5) Client: lookup và gọi</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.rmi.registry.LocateRegistry;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.rmi.registry.Registry;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RmiClient</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        Registry registry <span style="color:#f92672">=</span> LocateRegistry.<span style="color:#a6e22e">getRegistry</span>(<span style="color:#e6db74">&#34;127.0.0.1&#34;</span>, 1099);
+</span></span><span style="display:flex;"><span>        HelloService svc <span style="color:#f92672">=</span> (HelloService) registry.<span style="color:#a6e22e">lookup</span>(<span style="color:#e6db74">&#34;hello&#34;</span>);
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(svc.<span style="color:#a6e22e">hello</span>(<span style="color:#e6db74">&#34;Boss&#34;</span>));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Lỗi hay gặp</p>
+<ul>
+<li>
+<p>Firewall chặn port 1099</p>
+</li>
+<li>
+<p>Sai hostname/IP khi getRegistry</p>
+</li>
+<li>
+<p>Classpath không đúng → ClassNotFoundException</p>
+</li>
+</ul>
+
+
+        
+
+        
+        <div class="post-actions">
+          
+          <div class="post-tags">
+            <span class="tag">Java</span><span class="tag">RMI</span><span class="tag">Distributed</span><span class="tag">Remote</span>
+          </div>
+          
+        </div>
+      </main>
+
+      
+      <aside class="post-toc" aria-label="Mục lục">
+        <h4>Mục lục</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#mục-tiêu">Mục tiêu</a></li>
+    <li><a href="#1-rmi-là-gì">1) RMI là gì?</a></li>
+    <li><a href="#2-tạo-remote-interface">2) Tạo Remote Interface</a></li>
+    <li><a href="#3-implement-service">3) Implement service</a></li>
+    <li><a href="#4-server-bind-vào-registry">4) Server: bind vào registry</a></li>
+    <li><a href="#5-client-lookup-và-gọi">5) Client: lookup và gọi</a></li>
+  </ul>
+</nav>
+      </aside>
+      
+    </div>
+
+    
+    <nav class="post-navigation">
+      <div class="nav-links">
+        
+        
+        
+        <a class="nav-next" href="/posts/08-multicast/">
+          <span class="nav-label">← Bài trước</span>
+          <span class="nav-title">Bài 8 — Lập trình Multicast trong Java</span>
+        </a>
+        
+        <a class="nav-home" href="/posts/">← Về danh sách bài viết</a>
+        
+        <a class="nav-prev" href="/posts/09-java-rmi/">
+          <span class="nav-label">Bài tiếp →</span>
+          <span class="nav-title">Bài 9 — Phân tán đối tượng trong Java bằng RMI</span>
+        </a>
+        
+      </div>
+    </nav>
+  </article>
+</section>
+
+<style>
+ 
+.container { 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 60px 20px; 
+}
+
+.post-header { 
+  text-align: center; 
+  margin-bottom: 48px; 
+  padding-bottom: 32px;
+  border-bottom: 1px solid #eee;
+}
+
+.post-title { 
+  font-size: 2.8rem; 
+  font-weight: 700; 
+  margin: 0 0 20px; 
+  line-height: 1.3;
+  color: #111;
+}
+
+.post-meta { 
+  font-size: 15px; 
+  color: #666; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 10px; 
+  flex-wrap: wrap;
+}
+
+.dot { opacity: .6; }
+
+.post-tags-inline { 
+  display: flex; 
+  gap: 8px; 
+  flex-wrap: wrap; 
+}
+
+.tag { 
+  background: rgba(0,0,0,.06); 
+  padding: 7px 13px; 
+  border-radius: 999px; 
+  font-size: 13px; 
+  color: #444; 
+  font-weight: 500;
+}
+
+.post-grid {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 40px;
+  align-items: start;
+}
+
+ 
+.post-content { 
+  font-size: 1.15rem; 
+  line-height: 1.8; 
+  color: #333;
+  background: var(--card-bg, #fff);
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(10,10,10,0.08);
+}
+
+.post-content :where(h2, h3, h4, h5, h6) { 
+  margin: 48px 0 20px; 
+  font-weight: 600; 
+  scroll-margin-top: 100px;
+}
+
+.post-content h2 { font-size: 1.9rem; }
+.post-content h3 { font-size: 1.6rem; }
+
+.post-content p { margin: 20px 0; }
+
+.post-content ul, .post-content ol { 
+  padding-left: 28px; 
+  margin: 20px 0; 
+}
+
+.post-content li { margin: 10px 0; }
+
+.post-content blockquote { 
+  border-left: 4px solid #2563eb; 
+  padding-left: 24px; 
+  margin: 32px 0; 
+  font-style: italic; 
+  color: #555; 
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.post-content pre { 
+  background: #f5f5f5; 
+  padding: 20px; 
+  border-radius: 12px; 
+  overflow-x: auto; 
+  font-size: .95rem;
+  margin: 28px 0;
+  border: 1px solid #eee;
+}
+
+.post-content code { 
+  background: rgba(0,0,0,.06); 
+  padding: 3px 8px; 
+  border-radius: 6px; 
+  font-size: .95em;
+}
+
+.post-content pre code { background: none; padding: 0; }
+
+.post-content table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  margin: 28px 0; 
+}
+
+.post-content th, .post-content td { 
+  border: 1px solid #ddd; 
+  padding: 12px; 
+  text-align: left; 
+}
+
+.post-content th { background: #f0f0f0; font-weight: 600; }
+
+.post-content img { 
+  max-width: 100%; 
+  height: auto; 
+  border-radius: 12px; 
+  margin: 32px auto; 
+  display: block; 
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+}
+
+ 
+.post-author { 
+  display: flex; 
+  gap: 16px; 
+  align-items: center; 
+  margin-top: 48px; 
+  padding: 20px; 
+  background: #f9f9f9; 
+  border-radius: 12px; 
+  border: 1px solid #eee;
+}
+
+.author-avatar { 
+  width: 64px; 
+  height: 64px; 
+  border-radius: 50%; 
+  object-fit: cover; 
+}
+
+.author-name { display: block; font-size: 1.1rem; }
+.author-bio { margin: 6px 0 0; color: #666; font-size: .95rem; }
+
+ 
+.post-actions { margin-top: 32px; }
+.post-tags { display: flex; gap: 10px; flex-wrap: wrap; }
+
+ 
+.post-toc { 
+  background: #fafafa; 
+  border: 1px solid #eee; 
+  padding: 20px; 
+  border-radius: 12px; 
+  font-size: 14px; 
+  position: sticky; 
+  top: 100px; 
+  max-height: calc(100vh - 140px); 
+  overflow-y: auto;
+}
+
+.post-toc h4 { 
+  margin: 0 0 16px; 
+  font-size: 14px; 
+  color: #555; 
+  text-transform: uppercase; 
+  letter-spacing: .05em;
+}
+
+.post-toc ul { list-style: none; padding-left: 0; }
+.post-toc li { margin: 8px 0; }
+.post-toc a { color: #444; text-decoration: none; }
+.post-toc a:hover { color: #2563eb; }
+
+ 
+.post-navigation { 
+  margin-top: 80px; 
+  padding-top: 40px; 
+  border-top: 1px solid #eee;
+}
+
+.nav-links { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: flex-start; 
+  gap: 20px; 
+  flex-wrap: wrap;
+}
+
+.nav-prev, .nav-next, .nav-home { 
+  flex: 1; 
+  min-width: 200px; 
+  text-decoration: none; 
+  color: inherit;
+}
+
+.nav-home { 
+  text-align: center; 
+  font-weight: 500; 
+  color: #2563eb; 
+  font-size: 1.1rem;
+}
+
+.nav-label { 
+  font-size: .9rem; 
+  color: #888; 
+  display: block; 
+  margin-bottom: 6px;
+}
+
+.nav-title { 
+  font-weight: 600; 
+  display: block; 
+  line-height: 1.4;
+}
+
+ 
+@media (max-width: 960px) {
+  .post-grid { grid-template-columns: 1fr; gap: 32px; }
+  .post-toc { position: static; max-height: none; }
+  .post-title { font-size: 2.4rem; }
+  .container { padding: 40px 20px; }
+  .nav-links { flex-direction: column; align-items: stretch; }
+}
+
+@media (max-width: 720px) {
+  .post-title { font-size: 2.1rem; }
+  .post-content { padding: 24px; }
+  .post-author { padding: 16px; }
+}
+</style>
+
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">Blog Ngọc Trai</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,546 @@
+{{ define "main" }}
+<div class="contact-page">
+    <div class="contact-shell">
+
+        <!-- LEFT: INFO + FORM -->
+        <section class="contact-left">
+            <div class="contact-head">
+                <p class="kicker reveal-item" style="--delay: 0.1s">GET IN TOUCH</p>
+                <h1 class="title">
+                    <span class="line-wrapper"><span class="reveal-item" style="--delay: 0.2s">CONTACT</span></span>
+                    <span class="line-wrapper"><span class="reveal-item outlined" style="--delay: 0.3s">ME.</span></span>
+                </h1>
+                <p class="sub reveal-item" style="--delay: 0.4s">
+                    Gửi mình một tin nhắn. Mình sẽ phản hồi sớm nhất có thể.
+                </p>
+            </div>
+
+            <div class="info-cards reveal-item" style="--delay: 0.5s">
+                <a class="info-card" href="mailto:phamtraidz@gmail.com" rel="noopener">
+                    <span class="ic">📧</span>
+                    <div class="ic-text">
+                        <div class="ic-label">Email</div>
+                        <div class="ic-value">phamtraidz@gmail.com</div>
+                    </div>
+                </a>
+
+                <a class="info-card" href="tel:+84398805019" rel="noopener">
+                    <span class="ic">📞</span>
+                    <div class="ic-text">
+                        <div class="ic-label">Phone</div>
+                        <div class="ic-value">+84 398 805 019</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="form-wrap reveal-item" style="--delay: 0.6s">
+                <form action="https://formspree.io/f/mregbpgr" method="POST" class="form">
+                    <div class="row">
+                        <div class="field">
+                            <label>Tên</label>
+                            <input type="text" name="name" placeholder="Tên của bạn *" required>
+                        </div>
+                        <div class="field">
+                            <label>Email</label>
+                            <input type="email" name="email" placeholder="Email *" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Nội dung</label>
+                        <textarea name="message" rows="5" placeholder="Bạn muốn nhắn gì? *" required></textarea>
+                    </div>
+
+                    <!-- Formspree recommend: hidden subject -->
+                    <input type="hidden" name="_subject" value="New message from Contact page">
+
+                    <button type="submit" class="btn-send">
+                        Gửi tin nhắn
+                        <span class="arrow">→</span>
+                    </button>
+
+                    
+                </form>
+            </div>
+        </section>
+
+        <!-- RIGHT: VISUAL -->
+        <aside class="contact-right">
+            <div class="visual reveal-image">
+                <img src="{{ "/avatar.jpg" | relURL }}" alt="Avatar">
+            </div>
+
+            <div class="mini reveal-item" style="--delay: 0.55s">
+                <div class="mini-box">
+                    <div class="mini-title">Quick links</div>
+                    <a href="{{ "/posts/" | relURL }}">→ Bài viết</a>
+                    <a href="{{ "/about/" | relURL }}">→ Giới thiệu</a>
+                </div>
+            </div>
+            <div class="social-box">
+                <div class="social-row">
+                    <a href="https://github.com/slayhoccode" class="social-btn" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </svg>
+                        GitHub
+                    </a>
+                    <a href="mailto:phamtraidz@gmail.com" class="social-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16v16H4z"></path>
+                            <path d="M22 6l-10 7L2 6"></path>
+                        </svg>
+                        Email
+                    </a>
+                    <a href="https://www.linkedin.com/in/ph%E1%BA%A1m-ng%E1%BB%8Dc-trai-575178396/" class="social-btn" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://www.facebook.com/trai.pham.127201" class="social-btn" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                        Facebook
+                    </a>
+                    <a href="https://www.instagram.com/_ti.ngc_pm04/" class="social-btn" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                        Instagram
+                    </a>
+                    <a href="https://www.tiktok.com/@slaylonely?_r=1&_t=ZS-92YKnTQchDc" class="social-btn" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 3v12a4 4 0 1 1-4-4"></path>
+                            <path d="M9 3c1.5 2 4 3 6 3v4c-2 0-4-1-6-2"></path>
+                        </svg>
+                        TikTok
+                    </a>
+                    <a href="https://discord.com/invite/vivacious_swan_63072" class="social-btn" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 12h.01M15 12h.01"></path>
+                            <path d="M7.5 7.5C9 6.5 15 6.5 16.5 7.5"></path>
+                            <path d="M5 17c4 3 10 3 14 0"></path>
+                            <path d="M3 5c6-2 12-2 18 0v13c-6 2-12 2-18 0V5z"></path>
+                        </svg>
+                        Discord
+                    </a>
+                    <a href="/files/TraiPhamNgoc_2280603326.pdf"
+                        class="social-btn"
+                        target="_blank"
+                        rel="noopener"
+                        download>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M12 3v12"></path>
+                                <path d="M7 10l5 5 5-5"></path>
+                                <path d="M5 21h14"></path>
+                            </svg>
+                            Tải báo cáo PDF
+                    </a>
+                </div>
+            </div>
+
+            
+        </aside>
+
+    </div>
+</div>
+
+<style>
+/* =========================
+   SOCIAL BOX
+========================= */
+
+.social-box{
+    margin-top: 18px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 14px 16px;
+    background: rgba(255,255,255,.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+[data-theme="dark"] .social-box{
+    background: rgba(20,20,24,.35);
+}
+
+/* Row nằm ngang */
+.social-row{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* Nút social */
+.social-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+    background: rgba(255,255,255,.8);
+    transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease, opacity .2s ease;
+    opacity: .9;
+}
+
+[data-theme="dark"] .social-btn{
+    background: rgba(20,20,24,.45);
+}
+
+/* Icon */
+.social-btn svg{
+    width: 18px;
+    height: 18px;
+}
+
+/* Hover */
+.social-btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0,0,0,.12);
+    opacity: 1;
+}
+
+
+/* =========================
+   CONTACT (NEW UI)
+========================= */
+
+/* page spacing */
+.contact-page{
+    padding: 28px 0 40px;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.contact-shell{
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0 18px;
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 22px;
+    align-items: start;
+}
+
+/* LEFT COLUMN - stack vertically: info-cards on top, form below */
+.contact-left{
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 22px;
+    background:
+        radial-gradient(900px 260px at 20% 0%, rgba(124,92,255,.10), transparent 55%),
+        radial-gradient(700px 220px at 90% 10%, rgba(34,211,238,.08), transparent 60%);
+    box-shadow: 0 10px 30px rgba(0,0,0,.06);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Header */
+.contact-head {
+    /* no special grid rules needed */
+}
+
+.kicker{
+    margin: 0 0 10px;
+    font-size: 11px;
+    letter-spacing: .42em;
+    font-weight: 800;
+    opacity: .75;
+}
+
+.title{
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(46px, 5vw, 78px);
+    font-weight: 900;
+    line-height: .9;
+    letter-spacing: -3px;
+    text-transform: uppercase;
+    color: #1a1a1a;
+}
+
+[data-theme="dark"] .title{ 
+    color: #f2f2f2; 
+}
+
+.line-wrapper{ 
+    display:block; 
+    overflow:hidden; 
+}
+
+.outlined{ 
+    color: transparent !important; 
+    -webkit-text-stroke: 2px currentColor; 
+    display: inline-block; 
+}
+
+.sub{
+    margin: 14px 0 0;
+    opacity: .78;
+    max-width: 56ch;
+    line-height: 1.6;
+}
+
+/* Info cards: horizontal row */
+.info-cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 0;
+}
+
+.info-card{
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    text-decoration: none;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 12px 12px;
+    background: rgba(255,255,255,.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease, opacity .2s ease;
+}
+
+[data-theme="dark"] .info-card{ 
+    background: rgba(20,20,24,.45); 
+}
+
+.info-card:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 16px 38px rgba(0,0,0,.10);
+    border-color: rgba(124,92,255,.35);
+}
+
+.ic{ 
+    font-size: 20px; 
+}
+
+.ic-label{ 
+    font-size: 12px; 
+    opacity: .7; 
+    font-weight: 700; 
+}
+
+.ic-value{ 
+    font-size: 14px; 
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+/* Form: below cards, full width */
+.form-wrap{
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    border-top: 1px dashed var(--border);
+    padding-top: 16px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.row{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.field label{
+    display: block;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    opacity: .75;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+.field input,
+.field textarea{
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 12px 12px;
+    background: rgba(255,255,255,.8);
+    outline: none;
+    transition: border-color .2s ease, transform .12s ease, background .2s ease;
+}
+
+[data-theme="dark"] .field input,
+[data-theme="dark"] .field textarea{
+    background: rgba(20,20,24,.35);
+}
+
+.field input:focus,
+.field textarea:focus{
+    border-color: rgba(34,211,238,.45);
+}
+
+.btn-send{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(124,92,255,.35);
+    background: rgba(124,92,255,.12);
+    border-radius: 14px;
+    padding: 12px 16px;
+    font-weight: 900;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: fit-content;
+    transition: transform .15s ease, opacity .2s ease, box-shadow .2s ease;
+    margin-top: 8px;
+    align-self: flex-start;
+}
+
+.btn-send:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 16px 38px rgba(0,0,0,.10);
+}
+
+.arrow{ 
+    font-size: 16px; 
+}
+
+.tiny{
+    margin: 0;
+    font-size: 12px;
+    opacity: .7;
+}
+
+/* RIGHT */
+.contact-right{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.visual{
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 18px 40px rgba(0,0,0,.10);
+    background: rgba(255,255,255,.02);
+}
+
+.visual img{
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+    display: block;
+}
+
+.mini-box{
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 14px;
+    background: rgba(255,255,255,.65);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+[data-theme="dark"] .mini-box{ 
+    background: rgba(20,20,24,.35); 
+}
+
+.mini-title{
+    font-weight: 900;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    font-size: 12px;
+    opacity: .75;
+    margin-bottom: 10px;
+}
+
+.mini-box a{
+    display: block;
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    transition: background .2s ease, transform .15s ease;
+}
+
+.mini-box a:hover{
+    background: rgba(34,211,238,.10);
+    transform: translateY(-1px);
+}
+
+/* Animations */
+.reveal-item {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+    animation: revealUp 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+    animation-delay: var(--delay);
+}
+
+@keyframes revealUp { 
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    } 
+}
+
+.reveal-image {
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 0.35s;
+}
+
+@keyframes fadeIn { 
+    to { 
+        opacity: 1; 
+    } 
+}
+
+/* Mobile */
+@media (max-width: 900px){
+    .contact-shell{
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-left{
+        padding: 18px;
+    }
+    
+    .info-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .row{
+        grid-template-columns: 1fr;
+    }
+    
+    .visual img{
+        height: 320px;
+    }
+}
+</style>
+{{ end }}

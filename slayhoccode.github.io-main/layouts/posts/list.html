@@ -1,0 +1,218 @@
+{{/* OVERRIDE: layouts/posts/list.html */}}
+{{ define "main" }}
+<section class="posts-list container">
+  <header class="posts-list-header">
+    <h1 class="page-title">Các chia sẻ về học tập của tôi</h1>
+    {{ with .Description }}<p class="page-sub">{{ . }}</p>{{ end }}
+  </header>
+  {{ $paginator := .Paginate .Pages }}
+  <div class="posts-grid" role="list">
+    {{ range $paginator.Pages }}
+    <article class="post-card" role="listitem">
+      <a class="post-link" href="{{ .RelPermalink }}">
+        <div class="post-body">
+          <h2 class="post-title">{{ .Title }}</h2>
+          <div class="post-meta">
+            <time datetime="{{ .Date }}">{{ .Date.Format "02 Jan 2006" }}</time>
+            <span class="dot">•</span>
+            <span>{{ .ReadingTime }} min đọc</span>
+          </div>
+          {{ with .Params.tags }}
+          <div class="post-tags">
+            {{ range $i, $t := . }}<span class="tag">{{ $t }}</span>{{ end }}
+          </div>
+          {{ else }}
+          <!-- Giữ chỗ nếu không có tag để card đồng đều chiều cao -->
+          <div class="post-tags" style="min-height: 36px;"></div>
+          {{ end }}
+        </div>
+      </a>
+    </article>
+    {{ end }}
+  </div>
+  <nav class="pagination" aria-label="Pagination">
+    {{ if $paginator.HasPrev }}
+      <a class="pager prev" href="{{ $paginator.Prev.URL }}">← Cũ hơn</a>
+    {{ else }}
+      <span class="pager disabled">← Cũ hơn</span>
+    {{ end }}
+    <div class="pager-pages">
+      {{ range $i, $p := $paginator.Pagers }}
+        {{ if eq $p.PageNumber $paginator.PageNumber }}
+          <span class="page active">{{ $p.PageNumber }}</span>
+        {{ else }}
+          <a class="page" href="{{ $p.URL }}">{{ $p.PageNumber }}</a>
+        {{ end }}
+      {{ end }}
+    </div>
+    {{ if $paginator.HasNext }}
+      <a class="pager next" href="{{ $paginator.Next.URL }}">Mới hơn →</a>
+    {{ else }}
+      <span class="pager disabled">Mới hơn →</span>
+    {{ end }}
+  </nav>
+</section>
+<style>
+/* Clean posts list - Tiêu đề nổi bật + card đồng đều chiều cao */
+.container { max-width: 1200px; margin: 0 auto; padding: 48px 20px; }
+
+.posts-list-header { 
+  margin-bottom: 48px; 
+  text-align: center; 
+}
+
+.page-title { 
+  font-size: 2.8rem; 
+  font-weight: 700;
+  margin: 0 0 12px;
+  line-height: 1.2;
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-sub { 
+  color: #6b6b6b; 
+  margin: 0; 
+  font-size: 1.15rem; 
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+  align-items: stretch; /* Quan trọng: làm tất cả card cùng chiều cao */
+}
+
+.post-card {
+  background: var(--card-bg, #fff);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(10,10,10,0.08);
+  transition: transform .25s ease, box-shadow .25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(10,10,10,0.14);
+}
+
+.post-link {
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  flex: 1;
+}
+
+.post-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  gap: 16px;
+}
+
+.post-title {
+  font-size: 1.35rem;
+  margin: 0;
+  color: var(--heading-color, #111);
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.post-meta {
+  font-size: 14px;
+  color: #888;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.dot { opacity: .6; }
+
+.post-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: auto; /* Đẩy tags xuống dưới cùng */
+}
+
+.tag {
+  background: rgba(0,0,0,.06);
+  padding: 7px 13px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: #444;
+  font-weight: 500;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 56px;
+  flex-wrap: wrap;
+}
+
+.pager {
+  padding: 12px 24px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #ddd;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+  transition: all .2s;
+}
+
+.pager:hover { border-color: #2563eb; color: #2563eb; }
+
+.pager.disabled {
+  opacity: .4;
+  pointer-events: none;
+  background: transparent;
+  border: none;
+}
+
+.pager-pages {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.page {
+  padding: 9px 15px;
+  border-radius: 10px;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  transition: all .2s;
+}
+
+.page:hover { border-color: #2563eb; color: #2563eb; }
+
+.page.active {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+}
+
+@media (max-width: 720px) {
+  .posts-grid { grid-template-columns: 1fr; gap: 20px; }
+  .page-title { font-size: 2.3rem; }
+  .post-title { font-size: 1.3rem; }
+  .post-link { padding: 24px; }
+}
+</style>
+{{ end }} 
